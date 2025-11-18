@@ -1,0 +1,22 @@
+
+
+body {
+  background-image: url("../images/background_gradient_05.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  margin: 0;
+}
+
+div {
+  width:70%;
+  margin:auto;
+  /*background-color:antiquewhite;*/
+  text-align: center;
+  font-family: 'Inter Custom', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandre | Minirt</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Load Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
+    <!-- Custom Style Block for Dark Theme and Typography -->
+    <style>
+        :root {
+            --color-bg: #1A1A1A;
+            --color-text: #F0F0F0;
+            --color-accent: #06B6D4; /* Cyan Accent */
+            --color-card: #2D3748;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            scroll-behavior: smooth;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Styling for the large project content sections */
+        .content-section p {
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
+            <div class="flex space-x-4 text-lg font-medium">
+                <a href="../index.html" class="text-gray-400 hover:text-white transition duration-200">home</a>
+                <span class="text-gray-600">/</span>
+                <!-- Work remains active as this is a sub-page of Work -->
+                <a href="../work.html" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
+                <span class="text-gray-600">/</span>
+                <a href="../cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
+                <span class="text-gray-600">/</span>
+                <a href="../contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 content-section">
+
+        <!-- HEADER AND LINKS -->
+        <div class="mb-12 border-b border-gray-700 pb-8">
+            <a href="work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
+
+            <!-- Project Title -->
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-cyan-400 mb-4 hero-title">Minirt</h1>
+
+            <!-- Project Tags -->
+            <div class="flex flex-wrap gap-2">
+                <span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C</span>
+                <span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Ray Tracing</span>
+                <span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Graphics</span>
+                <span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">MLX</span>
+            </div>
+
+            <!-- GitHub Link -->
+            <a href="https://github.com/yourusername/minirt" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-cyan-400 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Source Code on GitHub</a>
+        </div>
+
+        <!-- MAIN PROJECT IMAGE -->
+        <div class="mb-12 rounded-lg overflow-hidden shadow-2xl border-4 border-gray-700">
+            <img src="https://placehold.co/900x500/2D3748/F0F0F0?text=Minirt+Final+Render"
+                 alt="High-resolution render produced by the Minirt engine"
+                 class="w-full h-auto object-cover">
+        </div>
+
+        <!-- DESCRIPTION -->
+        <p class="text-lg">
+            MiniRT project is a fundamental **ray tracing engine** developed from scratch, serving as a demonstration of computer graphics and physically-based rendering principles.
+        </p>
+
+        <!-- HOW IT WORKS -->
+        <h2 class="text-3xl font-bold text-cyan-400 mt-12 mb-4">How does it works ?</h2>
+        <p>
+            The method calculates the final color of each pixel by simulating the path of light. For every intersection with an object, the color is determined using a complex model that synthesizes data from the **object's material**, **light sources**, and **view direction**. The result is a highly realistic image that accurately captures shadows, reflections, and material properties.
+        </p>
+
+        <!-- THE SCENE -->
+        <h2 class="text-3xl font-bold text-cyan-400 mt-12 mb-6">The scene</h2>
+        <p>
+            Objects data are defined in a **.rt file** parsed before image rendering. The parser validates and translates simple text definitions into the complex mathematical objects required by the ray tracer.
+        </p>
+
+        <!-- SCENE ELEMENTS (C, A, L) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 text-center">
+
+            <!-- CAMERA (C) -->
+            <div class="p-4 bg-gray-800 rounded-lg border border-gray-700">
+                <p class="text-xl font-bold text-cyan-400 mb-2">C is for Camera</p>
+                <img src="https://placehold.co/200x150/222/F0F0F0?text=C"
+                     alt="Placeholder graphic for Camera definition"
+                     class="w-full h-auto object-cover rounded-md mb-2 opacity-70">
+                <p class="text-sm text-gray-400">The viewpoint and direction of the scene, defined by origin, orientation vector, and FOV.</p>
+            </div>
+
+            <!-- AMBIENT LIGHT (A) -->
+            <div class="p-4 bg-gray-800 rounded-lg border border-gray-700">
+                <p class="text-xl font-bold text-cyan-400 mb-2">A is for Ambient Light</p>
+                <img src="https://placehold.co/200x150/222/F0F0F0?text=A"
+                     alt="Placeholder graphic for Ambient Light definition"
+                     class="w-full h-auto object-cover rounded-md mb-2 opacity-70">
+                <p class="text-sm text-gray-400">A uniform background illumination that brightens all objects equally, preventing absolute blackness.</p>
+            </div>
+
+            <!-- LIGHT (L) -->
+            <div class="p-4 bg-gray-800 rounded-lg border border-gray-700">
+                <p class="text-xl font-bold text-cyan-400 mb-2">L is for Lights</p>
+                <img src="https://placehold.co/200x150/222/F0F0F0?text=L"
+                     alt="Placeholder graphic for Point Light definition"
+                     class="w-full h-auto object-cover rounded-md mb-2 opacity-70">
+                <p class="text-sm text-gray-400">Point light sources defined by position, brightness, and color, critical for shadows and reflections.</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Alexandre Van Der Plassche. Software Development and More.</p>
+    </footer>
+
+</body>
+</html>
