@@ -170,11 +170,50 @@
 <span class="text-gray-500">#   Pos     Rotation  Scaling  Color        Diffuse  Specular  Shininess Reflective   Shearing</span>
 <span class="text-white">sp </span> 0,0,0   1,1,1     1,1,1    250,55,125     0.9      0.9       200.0      0.2       0,0,0,0,0,0</pre>
 					</div>
-                    <p class="text-sm text-gray-400 mt-4">This object defines a sphere with position, rotation (useless for sphere), diameter, color, and key material properties for light interaction, including diffuse reflection, specular highlights, and shininess (hardness).</p>
+                    <p class="text-sm text-gray-400 mt-4">This object defines a sphere with position, rotation (even though useless for sphere), diameter, color, and key material properties for light interaction, including diffuse reflection, specular highlights, and shininess (hardness).</p>
                 </div>
             </div>
         </div>
         <!-- --- END GEOMETRIC OBJECTS SECTION --- -->
+
+
+        <!-- --- INPUT FILE vs. RENDER SECTION --- -->
+        <h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6">Basic Example</h2>
+        <p>
+            Bellow is a basic example of the project : the representation of a red [255,0,0] sphere of diameter/scale: 1 unit [1,1,1], positioned at [0,0,0] coordinates.
+			The camera is positioned 5 units back from the origin and is looking forward [0,0,1].
+			A white light at [2,0,-10] illuminates the sphere, placing the reflection subtly right of center.
+        </p>
+
+        <!-- Use flex-col to ensure proper stacking and gap handling with the arrow -->
+        <div class="flex flex-col gap-4 mt-8">
+            <!-- 1. RT File Input Image (Top) -->
+            <div class="bg-gray-800 p-4 rounded-lg shadow-xl border border-gray-700">
+                <h3 class="text-xl font-semibold mb-3 text-white text-center">Input : Scene File (.rt)</h3>
+
+                <img src="../images/minirt_scene_900x150.png"
+                     alt="Minirt scene definition file content"
+                     class="w-full h-auto ">
+            </div>
+
+            <!-- 2. Processing Arrow -->
+            <div class="flex justify-center">
+                <!-- SVG Downward Arrow (now static) -->
+                <svg class="w-12 h-12 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+
+            <!-- 3. Rendered Output Image (Bottom) -->
+            <div class="bg-gray-800 p-4 rounded-lg shadow-xl border border-gray-700">
+                <h3 class="text-xl font-semibold mb-3 text-white text-center">Output : Rendered Scene</h3>
+                <img src="../images/minirt_render_01.png"
+                     alt="Final image rendered by the Minirt engine"
+                     class="w-full h-auto">
+            </div>
+        </div>
+        <!-- --- END INPUT FILE vs. RENDER SECTION --- -->
+
 
 
 
