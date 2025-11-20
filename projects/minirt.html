@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre | Minirt</title>
+    <title>Alexandre | MiniRT</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -67,7 +67,7 @@
             <a href="work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
 
             <!-- Project Title -->
-            <h1 class="text-5xl sm:text-6xl font-extrabold text-blue-300 mb-4 hero-title">Minirt</h1>
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-blue-200 mb-4 hero-title">MiniRT</h1>
 
             <!-- Project Tags -->
             <div class="flex flex-wrap gap-2">
@@ -93,9 +93,11 @@
             MiniRT project is a fundamental ray tracing engine developed from scratch using C,
 			serving as a demonstration of computer graphics and physically-based rendering principles.
         </p>
-
+		<p>
+			MiniRT was completed during the 42 common core, in collaboration with John Doe.
+		</p>
         <!-- HOW IT WORKS -->
-        <h2 class="text-3xl font-bold text-blue-300 mt-12 mb-4">How does it works ?</h2>
+        <h2 class="text-3xl font-bold text-blue-200 mt-12 mb-4">How does it works ?</h2>
         <p>
             The method calculates the final color of each pixel by simulating the path of light.
 			For every intersection with an object, the color is determined using a complex model
@@ -104,7 +106,7 @@
         </p>
 
         <!-- THE SCENE -->
-        <h2 class="text-3xl font-bold text-blue-300 mt-12 mb-6">The scene</h2>
+        <h2 class="text-3xl font-bold text-blue-200 mt-12 mb-6">The scene</h2>
         <p>
             Objects data are defined in a .rt file parsed before image rendering.
 			The parser validates and translates simple text definitions into mathematical objects required by the ray tracer.
@@ -116,9 +118,9 @@
             <!-- CAMERA (C) -->
            <div class="p-4 bg-gray-800 rounded-lg border border-gray-700">
                 <p class="text-xl font-bold text-cyan-400 mb-2">C - Camera</p>
-                <!-- Color changed from text-green-400 to text-blue-300 -->
+                <!-- Color changed from text-green-400 to text-blue-200 -->
                 <div class="text-left mb-2">
-                    <pre class="text-xs bg-gray-900 p-3 rounded-md overflow-x-auto text-blue-300 leading-relaxed shadow-inner">
+                    <pre class="text-xs bg-gray-900 p-3 rounded-md overflow-x-auto text-blue-200 leading-relaxed shadow-inner">
 <span class="text-gray-500">#     Pos      Dir    FOV</span>
 <span class="text-white">C   </span>0,0,-15   0,0,1   70</pre>
                 </div>
@@ -130,7 +132,7 @@
                 <p class="text-xl font-bold text-cyan-400 mb-2">A - Ambient Light</p>
                 <!-- Image replaced with code block -->
                 <div class="text-left mb-2">
-                    <pre class="text-xs bg-gray-900 p-3 rounded-md overflow-x-auto text-blue-300 leading-relaxed shadow-inner">
+                    <pre class="text-xs bg-gray-900 p-3 rounded-md overflow-x-auto text-blue-200 leading-relaxed shadow-inner">
 <span class="text-gray-500">#   Brightness    Color</span>
 <span class="text-white">A  </span>   0.4       255,255,255</pre>
                 </div>
@@ -142,7 +144,7 @@
                 <p class="text-xl font-bold text-cyan-400 mb-2">L - Lights</p>
                 <!-- Image replaced with code block -->
                 <div class="text-left mb-2">
-                    <pre class="text-xs bg-gray-900 p-3 rounded-md overflow-x-auto text-blue-300 leading-relaxed shadow-inner">
+                    <pre class="text-xs bg-gray-900 p-3 rounded-md overflow-x-auto text-blue-200 leading-relaxed shadow-inner">
 <span class="text-gray-500">#    Pos    Br.    Color</span>
 <span class="text-white">L 	</span>0,0,-5  0.6  255,255,255</pre>
                 </div>
@@ -153,7 +155,7 @@
 
 
         <!-- --- GEOMETRIC OBJECTS SECTION --- -->
-        <h2 class="text-3xl font-bold text-blue-300 mt-12 mb-6">Geometric Objects</h2>
+        <h2 class="text-3xl font-bold text-blue-200 mt-12 mb-6">Geometric Objects</h2>
         <p>
             All geometric objects (Sphere, Plane, Cylinder, Cone) share a common definition format.
 			Here is a sphere as an example.
@@ -178,7 +180,7 @@
 
 
         <!-- --- INPUT FILE vs. RENDER SECTION --- -->
-        <h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6">Basic Example</h2>
+        <h2 class="text-3xl font-bold text-blue-200 mt-16 mb-6">Basic Example</h2>
         <p>
             Bellow is a basic example of the project : the representation of a red [255,0,0] sphere of diameter/scale: 1 unit [1,1,1], positioned at [0,0,0] coordinates.
 			The camera is positioned 5 units back from the origin and is looking forward [0,0,1].
@@ -199,7 +201,7 @@
             <!-- 2. Processing Arrow -->
             <div class="flex justify-center">
                 <!-- SVG Downward Arrow (now static) -->
-                <svg class="w-12 h-12 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-12 h-12 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
             </div>
@@ -214,9 +216,103 @@
         </div>
         <!-- --- END INPUT FILE vs. RENDER SECTION --- -->
 
+		        <!-- --- RAY GENERATION AND INTERSECTION SECTION (NOW AT THE END) --- -->
+        <h2 class="text-3xl font-bold text-blue-200 mt-12 mb-6">Ray Generation and Intersection</h2>
+        <p>
+            For every single pixel on that window, we shoot an invisible, perfectly straight light ray out into the 3D scene.
+            The ray's starting point and direction are calculated based on where we put the camera, its angle, and its field of view (how wide the shot is).
+			All of this depends on heavy-duty 3D math called vector algebra, that keep track of every position and direction.
+
+        </p>
+        <p>
+            Once a ray is fired, the code checks every single object in the scene to see if the ray hits it.
+            We use mathematical formulas specific to each shape (sphere, plane, etc.) to figure out exactly where the collision happens.
+        </p>
+        <p>
+            If a ray hits multiple objects, we only care about the <b>very first object</b> it hits—the closest one to the camera. That's the one we'll color in.
+        </p>
+        <!-- --- END RAY GENERATION AND INTERSECTION SECTION --- -->
 
 
+        <!-- --- PHONG SHADING MODEL SECTION (New/Relocated) --- -->
+        <h2 class="text-3xl font-bold text-blue-200 mt-12 mb-6">Phong Shading: The Recipe for Reality</h2>
+        <p>
+            The final color of any point on a surface is determined using the classic lighting formula known as <b>Phong Shading</b>. This model combines three distinct components of light interaction based on the object's material properties:
+        </p>
+        <ul class="list-none space-y-3 pl-0 mb-6 text-gray-300">
+            <li class="bg-gray-800 p-3 rounded-lg border border-gray-700">
+                <span class="text-blue-200 font-bold mr-2">Ambient Light:</span> The overall, general light in the room. It makes sure nothing is pitch black, even in the shadows.
+            </li>
+            <li class="bg-gray-800 p-3 rounded-lg border border-gray-700">
+                <span class="text-blue-200 font-bold mr-2">Diffuse Light:</span> The main, scattered light you see. It depends on how directly the light is hitting the surface.
+            </li>
+            <li class="bg-gray-800 p-3 rounded-lg border border-gray-700">
+                <span class="text-blue-200 font-bold mr-2">Specular Highlights:</span> These are the bright, shiny highlights you see on polished surfaces. They depend on how directly the light bounces toward the camera, making things look 'hard' or 'wet.'
+            </li>
+        </ul>
 
+        <!-- Updated image source to use the uploaded file (image.webp) -->
+		<figure class="mb-8">
+        <div class="mb-8">
+            <img src="../images/minirt_phong.png"
+                 alt="Diagram illustrating the vectors for Ambient, Diffuse, and Specular components in the Phong Shading model."
+                 class="w-full h-auto shadow-lg">
+            <figcaption class="mt-3 text-sm text-gray-400 text-right italic">
+                Illustrating the Phong Reflection Model with 3 lights.
+            </figcaption>
+        </div>
+		</figure>
+
+
+		        <!-- SHADOWS (MOVED HERE) -->
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Shadows: The Visibility Test</h3>
+        <p>
+            For every point hit on an object, the renderer casts a <b>secondary ray</b> toward every light source.
+            If this shadow ray intersects any other object before it reaches the light, the point is considered to be in hard shadow, and only the ambient light component is applied.
+        </p>
+
+        <figure class="mb-8">
+            <img src="https://placehold.co/900x350/2D3748/F0F0F0?text=Diagram+of+Shadow+Ray+Casting"
+                 alt="Diagram illustrating a secondary ray being cast from a hit point to a light source to check for shadows."
+                 class="w-full h-auto rounded-md border border-gray-600 shadow-lg">
+
+            <figcaption class="mt-3 text-sm text-gray-400 text-left italic w-full">
+                Visualization of the Shadow Ray principle: If the ray from the intersection point to the light hits another object (Blocker), the point is in shadow and diffuse/specular light are ignored.
+            </figcaption>
+        </figure>
+        <!-- --- END PHONG SHADING MODEL SECTION --- -->
+
+
+  <!-- --- ADVANCED FEATURES SECTION (REDUCED CONTENT) --- -->
+        <h2 class="text-3xl font-bold text-blue-200 mt-16 mb-6">Project Advanced Features</h2>
+
+        <!-- REFLECTIONS -->
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Reflections (Recursive Ray Tracing)</h3>
+        <p>
+            When an object has a high reflective setting, we shoot a whole <em>new</em> ray off the surface at the perfect mirror angle. The renderer then calculates the color from that <em>new</em> ray's path (which might hit another object, and another...) and blends it back into the original pixel color. This sophisticated, iterative technique is called **recursive ray tracing**.
+        </p>
+
+        <figure class="mb-8">
+            <img src="https://placehold.co/900x350/2D3748/F0F0F0?text=Diagram+of+Recursive+Reflection+Ray"
+                 alt="Diagram illustrating a recursive reflection ray bouncing off a surface."
+                 class="w-full h-auto rounded-md border border-gray-600 shadow-lg">
+
+            <figcaption class="mt-3 text-sm text-gray-400 text-left italic w-full">
+                Visualization of Recursive Ray Tracing: A primary ray generates a reflection ray, which itself acts as a new primary ray, allowing for complex mirror effects.
+            </figcaption>
+        </figure>
+
+        <!-- OTHER FEATURES -->
+        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Performance and Scene Generation</h3>
+        <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
+            <li>
+                <span class="font-bold text-cyan-400">Multi-Threading:</span> The rendering process is split across multiple CPU cores to calculate pixel colors simultaneously, drastically reducing render times for complex scenes.
+            </li>
+            <li>
+                <span class="font-bold text-cyan-400">Random Scene Generation:</span> Includes a utility to automatically generate new `.rt` scene files with random objects, positions, and colors for stress-testing the rendering engine.
+            </li>
+        </ul>
+        <!-- --- END ADVANCED FEATURES SECTION --- -->
 
     </main>
 
