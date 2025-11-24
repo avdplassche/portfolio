@@ -1,0 +1,123 @@
+/*
+ * style.css
+ * Custom styles to enhance clarity and typography for the MiniRT project page.
+ */
+
+/* 1. Root Variables & Global Reset */
+:root {
+    /* Color Palette */
+    --color-bg: #1A1A1A;
+    --color-text: #F0F0F0;
+    --color-accent: #06B6D4; /* Cyan Accent */
+    --color-card: #2D3748;
+    --color-header-title: #93C5FD; /* Tailwind blue-300 equivalent for the title */
+    --color-heading: #93C5FD; /* Tailwind blue-200 equivalent */
+    --color-subtle-text: #ccc; /* For paragraph text clarity */
+    --color-code-bg: #1F2937; /* Darker background for code blocks (gray-800 equivalent) */
+}
+
+
+
+/*body {
+  background-image: url("../images/background_gradient_05.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  margin: 0;
+}*/
+
+div {
+  /*width:70%;*/
+  margin:auto;
+  text-align: center;
+  font-family: 'Inter Custom', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+/* 2. Base Body Styles */
+body {
+	  /*background-image: url("../images/background_gradient_05.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;*/
+    /* Applying custom fonts loaded in HTML */
+    font-family: 'IBM Plex Mono', monospace;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+    /* Basic text antialiasing for cleaner look */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Typography Enhancements */
+
+/* Main Hero Title (MiniRT) */
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-heading); /* Use the defined heading color */
+}
+
+/* General Content Section Text */
+.content-section p {
+    line-height: 1.75; /* Increased line height for better readability */
+    margin-bottom: 1.5rem;
+    color: var(--color-subtle-text); /* Slightly muted text for large blocks */
+    font-size: 1.05rem; /* Slightly larger font for main content */
+}
+
+/* All Headings (H2, H3) for consistency */
+.content-section h2, .content-section h3 {
+    color: var(--color-heading);
+    font-family: 'Montserrat', sans-serif; /* Use the hero font for impact */
+}
+
+/* Secondary Headings for project features */
+.content-section h3 {
+    margin-top: 2rem;
+}
+
+
+/* 4. Code and Pre-Formatted Blocks */
+
+/* Targeting the specific 'pre' element inside the scene elements card */
+.grid > div pre {
+    /* Use the variable for a slightly different background */
+    background-color: var(--color-code-bg);
+    border: 1px solid #374151; /* Subtle border (gray-700) */
+    padding: 1rem !important; /* Make sure padding is generous */
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: var(--color-text);
+}
+
+/* 5. Navigation & Links */
+header {
+    /* Ensure the header text uses the accent color for 'work' for high contrast */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separation */
+}
+
+/* Project Tag Styling */
+.project-tags span {
+    transition: background-color 0.2s, transform 0.2s;
+}
+.project-tags span:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+/* 6. Card and Container Styles */
+.content-section > div {
+    /* Add a transition to card elements for smoother hover effects if you add them later */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Enhancement for the list items in Phong Shading */
+.content-section ul.list-none li {
+    background-color: #1F2937; /* Slightly lighter than the background, similar to gray-800 */
+    border-left: 4px solid var(--color-accent); /* Highlight with the accent color */
+}

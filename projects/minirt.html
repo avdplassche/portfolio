@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +6,7 @@
     <title>Alexandre | MiniRT</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="minirt.css">
 
     <!-- Load Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +23,11 @@
         }
 
         body {
+			  background-image: url("../images/background_gradient_05.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
             font-family: 'IBM Plex Mono', monospace;
             background-color: var(--color-bg);
             color: var(--color-text);
@@ -272,12 +275,12 @@
         </p>
 
         <figure class="mb-8">
-            <img src="https://placehold.co/900x350/2D3748/F0F0F0?text=Diagram+of+Shadow+Ray+Casting"
+            <img src="../images/minirt_sphere_2_shadows_900x300.png"
                  alt="Diagram illustrating a secondary ray being cast from a hit point to a light source to check for shadows."
-                 class="w-full h-auto rounded-md border border-gray-600 shadow-lg">
+                 class="w-full h-auto  shadow-lg">
 
-            <figcaption class="mt-3 text-sm text-gray-400 text-left italic w-full">
-                Visualization of the Shadow Ray principle: If the ray from the intersection point to the light hits another object (Blocker),the point is in shadow and diffuse/specular light are ignored.
+            <figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
+                Shadows (the light in the first scene is closer to the sphere than the one in the second scene)
             </figcaption>
         </figure>
         <!-- --- END PHONG SHADING MODEL SECTION --- -->
@@ -304,7 +307,7 @@
             </figcaption>
         </figure>
 		<figure class="mb-8">
-            <img src="../images/minirt_exagerated_reflexions_900x500.png"
+            <img src="../images/minirt_exagerated_hq.png"
                  alt="Diagram illustrating a recursive reflection ray bouncing off a surface."
                  class="w-full h-auto shadow-lg">
 
@@ -314,16 +317,40 @@
         </figure>
 
         <!-- OTHER FEATURES -->
-        <h3 class="text-2xl font-bold text-white mt-10 mb-4">Performance and Scene Generation</h3>
+        <h3 class="text-2xl font-bold text-blue-100 mt-10 mb-4">Performance and Scene Generation</h3>
         <ul class="list-disc list-inside space-y-2 pl-4 text-gray-300">
             <li>
                 <span class="font-bold text-blue-100">Multi-Threading:</span> The rendering process is split across multiple CPU cores using C's <b>pthread.h</b> library in order
-				to calculate pixel colors simultaneously, drastically reducing render times for complex scenes.
+				to calculate pixel colors simultaneously, drastically reducing rendering time.
             </li>
             <li>
-                <span class="font-bold text-blue-100">Random Scene Generation:</span> Includes a utility to automatically generate new `.rt` scene files with random objects, positions, and colors for stress-testing the rendering engine.
+                <span class="font-bold text-blue-100">Random Scene Generation:</span> Includes a utility to automatically generate (and save) new `.rt` scene files with random objects, positions, and colors for stress-testing the rendering engine.
             </li>
         </ul>
+        <!-- --- END ADVANCED FEATURES SECTION --- -->
+
+        <!-- RENDER SHOWCASE - NEW HEADING AND STACKED IMAGES -->
+        <h3 class="text-2xl font-bold text-white mt-12 mb-4">Render Showcase and Experimentations</h3>
+        <div class="space-y-8 mt-10">
+
+            <figure class="rounded-lg overflow-hidden shadow-xl border border-gray-700">
+                <img src="uploaded:Screenshot 2025-11-18 at 23.57.59.png-81bca171-6a6a-459a-89fd-9d90e1cfdc32"
+                     alt="Final render showcasing complex reflections."
+                     class="w-full h-auto object-cover">
+                <figcaption class="p-3 text-xs text-gray-400 bg-gray-900 border-t border-gray-700">
+                    Example 1: Demonstrating complex reflections and hard shadows in a dynamic scene.
+                </figcaption>
+            </figure>
+
+            <figure class="rounded-lg overflow-hidden shadow-xl border border-gray-700">
+                <img src="uploaded:image.webp-a8c3d56f-7636-4f94-aa29-702b9cb72b3e"
+                     alt="Final render with multiple shapes."
+                     class="w-full h-auto object-cover">
+                <figcaption class="p-3 text-xs text-gray-400 bg-gray-900 border-t border-gray-700">
+                    Example 2: A clear scene featuring multiple primitives (spheres and planes) with distinct material and lighting effects.
+                </figcaption>
+            </figure>
+        </div>
         <!-- --- END ADVANCED FEATURES SECTION --- -->
 
 
