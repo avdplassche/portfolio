@@ -14,15 +14,20 @@
 
     <!-- Custom Style Block for Dark Theme and Typography -->
     <style>
-        :root {
+:root {
             --color-bg: #1A1A1A; /* Dark Charcoal Background */
             --color-text: #F0F0F0; /* Off-White Text */
             --color-accent: #06B6D4; /* Cyan Accent */
         }
 
         body {
+			background-image: url("../images/background_gradient_05.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
             font-family: 'IBM Plex Mono', monospace;
-            background-color: var(--color-bg);
+            /*background-color: var(--color-bg);*/
             color: var(--color-text);
             scroll-behavior: smooth;
         }
@@ -41,6 +46,15 @@
         pre {
             white-space: pre-wrap;
             word-break: break-all;
+        }
+
+        /* Highlight styling for the command examples */
+        .command-box {
+            background-color: #2D3748; /* Darker background for the blocks */
+            border-left: 4px solid var(--color-accent);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
         }
     </style>
 </head>
@@ -99,6 +113,9 @@
 			Replicating many of the fundamental features of Bash shell, this project serves as a deep dive into system programming, demanding meticulous attention to process management, effective I/O redirection, and complex command line parsing.
         </p>
 		<p>
+			It was completed during the 42 common core, in collaboration with John Doe.
+		</p>
+		<p>
             At its core, a shell operates in a continuous execution loop, defined by three main phases:
             <br><br>
             <span class="font-bold text-blue-300">1. Waiting:</span> The shell displays a prompt and awaits user command input.
@@ -113,8 +130,8 @@
         <p>During this project, we were asked to:</p>
 
         <ul class="list-disc list-inside space-y-3 pl-4 text-gray-300">
-            <li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Recode essential Built-in Commands (echo, cd, pwd, env, export, unset, exit)</li>
-            <li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Handle complex quotes and variable expansion (or why "$USER" and '$USER' behave differently)</li>
+            <li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Recode essential Built-in Commands (echo, cd, pwd, env, export, unset, exit).</li>
+            <li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Handle complex quotes and variable expansion (or why "$USER" and '$USER' behave differently).</li>
             <li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Implement I/O redirections and piping to control data flow between commands.</li>
             <li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Handle recursive wildcard expansion (*) for pattern matching in file names.</li>
 			<li class="p-2 bg-gray-800 rounded-lg border border-gray-700">Handle Signals (Ctrl+C, Ctrl+D and Ctrl+\).</li>
@@ -125,6 +142,26 @@
         <p>
             The initial and most critical phase of the shell is transforming the raw input string into a structured, executable format.
         </p>
+
+
+        <!-- START MOVED AND REPHRASED SECTION: TOKENIZATION & UNDERSTANDING -->
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4">Initial Tokenization and Testing Blueprint</h3>
+        <p>
+            Before implementing the parser, I needed a complete understanding of how Bash tokenizes complex command lines. I created the visualization below as a rigorous testing blueprint in Bash. This systematic analysis of distinct command scenarios served as the crucial pre-development stage.
+        </p>
+
+        <!-- Diagram section remains here, before Data Structure Choice -->
+        <div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-gray-800 p-4">
+            <h4 class="text-xl font-bold text-white mb-4">Tokenization and Structural Mapping</h4>
+            <img src="../images/minishell_command_decomposition.png"
+                 alt="Diagram showing various commands broken down into structured components: bin, arg, input redir, file descriptors, and pipe."
+                 class="w-full h-auto object-cover border border-gray-700 rounded-md mb-4">
+            <figcaption class="text-sm text-gray-400 italic">
+                Visual representation of different command-line inputs are decomposition, done with Obsidian's canva plug-in.
+            </figcaption>
+        </div>
+        <!-- END MOVED AND REPHRASED SECTION -->
+
 
         <h3 class="text-2xl font-bold text-white mt-8 mb-4">Data Structure Choice</h3>
         <p>
@@ -261,16 +298,29 @@
             This phase is responsible for correctly running user-defined binaries and built-in commands, managing I/O redirection, and handling pipelines.
         </p>
 
-        <h3 class="text-2xl font-bold text-white mt-8 mb-4">Process Management with fork() and execve()</h3>
+        <h3 class="text-2xl font-bold text-white mt-8 mb-4">Process Management</h3>
         <p>
             To run any external command (a non-built-in like <code class="text-yellow-300">/bin/ls</code>), the shell uses a two-step approach:
         </p>
         <ol class="list-decimal list-inside space-y-2 pl-4 text-gray-300">
-            <li><strong class="text-cyan-400">fork():</strong> The parent shell process calls <code class="bg-gray-700 p-0.5 rounded">fork()</code> to create an exact copy of itself, known as the child process. This ensures the main shell remains active and ready for the next command while the new process handles the current execution.</li>
-            <li><strong class="text-cyan-400">execve():</strong> Inside the child process, <code class="bg-gray-700 p-0.5 rounded">execve()</code> is called. This function replaces the entire running program (the child shell copy) with the new program specified by the command path (e.g., <code class="text-yellow-300">/usr/bin/grep</code>), using the arguments and environment variables passed from the parsed <code class="text-cyan-400">t_cmd</code> structure.</li>
+            <li><strong class="text-cyan-300">fork():</strong> The parent shell process calls <code class="bg-gray-700 p-0.5 rounded">fork()</code> to create an exact copy of itself (the child process) in order to create a new process for the command.</li>
+            <li><strong class="text-cyan-300">execve():</strong> Inside the child process, <code class="bg-gray-700 p-0.5 rounded">execve()</code> is called. This function replaces the running program, hence the necessity of fork().</li>
         </ol>
+
+
+		<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 overflow-x-auto text-sm my-6">
+            <pre class="text-white">
+<span class="text-gray-400">// char *cmd.path = "/bin/ls"</span>
+<span class="text-gray-400">// char **cmd.args = {"ls", "-l", NULL}</span>
+<span class="text-gray-400">// char **env = {"PATH=...", "USER=...", NULL}</span>
+
+<span class="text-yellow-400">execve</span>(cmd.path, cmd.args, env) == <span class="text-red-400">-1</span>
+</pre>
+        </div>
+
+
         <p>
-            The parent shell then waits for the child process to terminate, retrieves its exit status, and uses it to update the shell's exit code variable (like <code class="text-yellow-300">$?</code> in Bash).
+            The parent shell then waits for the child process to terminate, retrieves its exit status that will be expandable using "<code class="text-yellow-300">$?</code>".
         </p>
 
         <h3 class="text-2xl font-bold text-white mt-8 mb-4">Handling Pipelines with pipe()</h3>

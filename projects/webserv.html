@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alexandre | Webserv</title>
+	<!-- Load Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Load Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- Custom Style Block for Dark Theme and Typography -->
+	<style>
+		:root {
+			--color-bg: #1A1A1A; /* Dark Charcoal Background */
+			--color-text: #F0F0F0; /* Off-White Text */
+			--color-accent: #06B6D4; /* Cyan Accent */
+		}
+
+		body {
+			background-image: url("../images/background_gradient_05.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			font-family: 'IBM Plex Mono', monospace;
+			/*background-color: var(--color-bg);*/
+			color: var(--color-text);
+			scroll-behavior: smooth;
+		}
+
+
+		.hero-title {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		/* Styling for the large project content sections */
+		.content-section p {
+			line-height: 1.75;
+			margin-bottom: 1.5rem;
+			color: #ccc;
+		}
+
+		pre {
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+
+		/* Highlight styling for the command examples */
+		.command-box {
+			background-color: #2D3748; /* Darker background for the blocks */
+			border-left: 4px solid var(--color-accent);
+			padding: 1rem;
+			margin-bottom: 1.5rem;
+			overflow-x: auto;
+		}
+	</style>
+</head>
+<body class="min-h-screen">
+
+	<!-- NAVIGATION BAR -->
+	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
+		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
+			<div class="flex space-x-4 text-lg font-medium">
+				<!-- Links updated to reference relative paths -->
+				<a href="../index.html" class="text-gray-400 hover:text-white transition duration-200">home</a>
+				<span class="text-gray-600">/</span>
+				<a href="../work.html" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
+				<span class="text-gray-600">/</span>
+				<a href="../cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
+				<span class="text-gray-600">/</span>
+				<a href="../contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
+			</div>
+		</nav>
+	</header>
+
+	<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 content-section">
+
+		<!-- HEADER AND LINKS -->
+		<div class="mb-12 border-b border-gray-700 pb-8">
+			<!-- Link updated to reference relative paths -->
+			<a href="work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
+
+			<!-- Project Title -->
+			<h1 class="text-5xl sm:text-6xl font-extrabold text-blue-300 mb-4 hero-title">Webserv</h1>
+
+			<!-- Project Tags -->
+			<div class="flex flex-wrap gap-2">
+				<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C++</span>
+				<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Networking</span>
+				<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">HTTP</span>
+			</div>
+
+			<!-- GitHub Link -->
+			<a href="https://github.com/yourusername/webserv" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-cyan-400 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Source Code on GitHub</a>
+		</div>
+
+		<!-- MAIN PROJECT IMAGE/DEMO -->
+		<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700">
+			<!-- Placeholder image for Webserv demonstration (Architecture look) -->
+			<img src="https://placehold.co/900x500/000/06B6D4?text=Webserver+Architecture+Diagram"
+				 alt="Conceptual diagram of the custom webserver architecture."
+				 class="w-full h-auto object-cover">
+		</div>
+
+		<!-- SECTION: INTRODUCTION -->
+		<h2 class="text-3xl font-bold text-cyan-400 mb-6 hero-title" id="intro">Introduction</h2>
+		<p class="text-lg">
+			The Webserv project is a custom, fully functional HTTP server built from scratch in C++98. It adheres to the HTTP/1.1 protocol specification and is designed to handle multiple simultaneous client connections efficiently.
+			This project served as an intensive deep dive into network programming, multi-client communication, and parsing complex HTTP requests.
+		</p>
+		<p class="text-lg">
+		This project was completed during the 42 common core, in collaboration with John Doe.
+		</p>
+		<h3 class="text-2xl font-bold text-white mt-8 mb-4">The HTTP Protocol</h3>
+		<p>
+			The <b>H</b>yper<b>t</b>ext <b>T</b>ransfer <b>P</b>rotocol (HTTP) is the foundation of data communication for the World Wide Web.
+			It is an application layer protocol designed for transmitting hypermedia documents, such as HTML.
+			Essentially, HTTP defines how <b>clients</b> (e.g. web browsers) request information from <b>servers</b> (e.g. Webserv) and how servers transfer the response back.
+
+		</p>
+
+		<p>
+			We specifically chose to implement HTTP/1.1 due to its significant improvements over its predecessor.
+			The main reason is support for Persistent Connections (Keep-Alive).
+		</p>
+
+
+		<!--<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-black">-->
+			<!-- Placeholder for the flow diagram image provided by the user (image_7939f7.png) -->
+			<figure class="mb-8">
+				<img src="../images/webserv_data_flow.png"
+				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
+				class="w-full h-auto object-contain">
+				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
+					This diagram is a brief illustration of a HTTP transaction flow, from the web browser initiating a request to the server processing it and sending back the final response.
+				</figcaption>
+			</figure>
+		<!--</div>-->
+		<!--<p>
+			This diagram illustrates the complete flow of an HTTP transaction, from the web browser initiating a request to the server processing it and sending back the final response.
+		</p>-->
+
+
+		<!-- SECTION: CONNECTION HANDLING (POLL SETUP) -->
+
+
+
+
+		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="poll-setup">I/O Multiplexing with `poll`</h2>
+		<p>
+			<code class="bg-gray-700 p-0.5 rounded">poll</code> automatically monitors a large set of non-blocking file descriptors (FDs) to determine which ones are ready for I/O operations (reading or writing) so we don't need to rely on multithreading.
+		</p>
+
+		   <h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="request-response">Anatomy of HTTP: Requests and Responses</h2>
+		<p>
+			The fundamental unit of communication in our web server is the exchange of HTTP Request and Response.
+			Correctly parsing and generating these messages is crucial for protocol compliance.
+		</p>
+
+		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Request</h3>
+		<p>
+			The server must accurately parse the incoming raw text stream from the client. A request is structured into three main parts:
+			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
+				<li><strong class="text-cyan-300">Request Line:</strong> Contains the HTTP method (GET, POST, DELETE), the resource path (URI), and the HTTP version (HTTP/1.1).</li>
+				<li><strong class="text-cyan-300">Headers:</strong> Key-value pairs providing metadata, such as the host, accepted content types, and, crucially, the <code class="bg-gray-700 p-0.5 rounded">Content-Length</code> for POST requests.</li>
+				<li><strong class="text-cyan-300">Body:</strong> Optional content, used only for POST requests (e.g. file contents).</li>
+			</ul>
+		</p>
+
+
+		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Response Generation</h3>
+		<p>
+			After processing the request, the server constructs a meticulous response for the client:
+			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
+				<li><strong class="text-cyan-300">Status Line:</strong> Includes the HTTP version and the three-digit Status Code (e.g., <code class="text-green-400">200 OK</code>, <code class="text-red-400">404 Not Found</code>, <code class="text-red-400">500 Internal Server Error</code>).</li>
+				<li><strong class="text-cyan-300">Headers:</strong> Provides metadata about the response, such as <code class="bg-gray-700 p-0.5 rounded">Content-Type</code> (e.g., <code class="bg-gray-700 p-0.5 rounded">text/html</code>) and <code class="bg-gray-700 p-0.5 rounded">Connection: Keep-Alive</code> for persistence.</li>
+				<li><strong class="text-cyan-300">Body:</strong> The actual content being served (e.g., the HTML page, an image file, or an error message).</li>
+			</ul>
+		</p>
+
+		<figure class="mb-8">
+				<img src="../images/webserv_logs.png"
+				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
+				class="w-full h-auto object-contain">
+				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
+					Our server's output logs.
+				</figcaption>
+			</figure>
+
+
+
+
+
+	</main>
+
+	<!-- FOOTER -->
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
+		<p>&copy; 2025 Alexandre Van Der Plassche.</p>
+	</footer>
+
+</body>
+</html>
