@@ -163,22 +163,21 @@
 
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Request</h3>
 		<p>
-			The server must accurately parse the incoming raw text stream from the client. A request is structured into three main parts:
+			A request is structured into three main parts:
 			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
 				<li><strong class="text-cyan-300">Request Line:</strong> Contains the HTTP method (GET, POST, DELETE), the resource path (URI), and the HTTP version (HTTP/1.1).</li>
-				<li><strong class="text-cyan-300">Headers:</strong> Key-value pairs providing metadata, such as the host, accepted content types, and, crucially, the <code class="bg-gray-700 p-0.5 rounded">Content-Length</code> for POST requests.</li>
+				<li><strong class="text-cyan-300">Headers:</strong> Key-value pairs providing metadata, such as <code class="bg-gray-700 p-0.5 rounded">Host</code>, <code class="bg-gray-700 p-0.5 rounded">Content Type</code>, and, crucially, the <code class="bg-gray-700 p-0.5 rounded">Content-Length</code> for POST requests.</li>
 				<li><strong class="text-cyan-300">Body:</strong> Optional content, used only for POST requests (e.g. file contents).</li>
 			</ul>
 		</p>
-
 
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Response Generation</h3>
 		<p>
 			After processing the request, the server constructs a meticulous response for the client:
 			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
-				<li><strong class="text-cyan-300">Status Line:</strong> Includes the HTTP version and the three-digit Status Code (e.g., <code class="text-green-400">200 OK</code>, <code class="text-red-400">404 Not Found</code>, <code class="text-red-400">500 Internal Server Error</code>).</li>
-				<li><strong class="text-cyan-300">Headers:</strong> Provides metadata about the response, such as <code class="bg-gray-700 p-0.5 rounded">Content-Type</code> (e.g., <code class="bg-gray-700 p-0.5 rounded">text/html</code>) and <code class="bg-gray-700 p-0.5 rounded">Connection: Keep-Alive</code> for persistence.</li>
-				<li><strong class="text-cyan-300">Body:</strong> The actual content being served (e.g., the HTML page, an image file, or an error message).</li>
+				<li><strong class="text-cyan-300">Status Line:</strong> Includes the HTTP version and the three-digit Status Code (e.g. <code class="text-green-400">200 OK</code>, <code class="text-red-400">404 Not Found</code>, <code class="text-red-400">500 Internal Server Error</code>).</li>
+				<li><strong class="text-cyan-300">Headers:</strong> Provides metadata about the response, such as <code class="bg-gray-700 p-0.5 rounded">Content-Type</code> (e.g. <code class="bg-gray-700 p-0.5 rounded">text/html</code>) and <code class="bg-gray-700 p-0.5 rounded">Connection: Keep-Alive</code> for persistence.</li>
+				<li><strong class="text-cyan-300">Body:</strong> The actual content being served (e.g. the HTML page, an image file, or an error message).</li>
 			</ul>
 		</p>
 
@@ -187,12 +186,76 @@
 				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
 				class="w-full h-auto object-contain">
 				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
-					Our server's output logs.
+					Screenshots showing our server's received Request Lines and sent Status lines.
 				</figcaption>
 			</figure>
 
 
+		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="methods">Supported HTTP Methods</h2>
+		<p>
+			The server implements the three most common HTTP request methods, each with specific handling logic for security and file operations.
+		</p>
 
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			<div class="command-box p-4 border-l-4 border-green-500">
+				<h3 class="text-xl font-bold text-green-400 mb-2">GET</h3>
+				<p class="text-sm">
+					Retrieves data from the specified resource. The server must handle file paths, directory listings (if configured), and manage 404 (Not Found) errors. This is the primary method for static content delivery.
+				</p>
+			</div>
+			<div class="command-box p-4 border-l-4 border-yellow-500">
+				<h3 class="text-xl font-bold text-yellow-400 mb-2">POST</h3>
+				<p class="text-sm">
+					Submits data to be processed to a specified resource, often used for forms or uploading files. The server must correctly parse the request body, handle data size limits, and manage file writing.
+				</p>
+			</div>
+			<div class="command-box p-4 border-l-4 border-red-500">
+				<h3 class="text-xl font-bold text-red-400 mb-2">DELETE</h3>
+				<p class="text-sm">
+					Deletes the specified resource. This is a highly restrictive method and requires careful security checks to prevent unauthorized file removal.
+				</p>
+			</div>
+		</div>
+
+
+		<h2 class="text-3xl font-bold text-cyan-400 mt-16 mb-6 hero-title" id="config-file">The NGINX-like Configuration File</h2>
+		<p>
+			To allow flexible setup and easy configuration of multiple servers, we designed a custom configuration file format heavily inspired by NGINX.
+			Our C++ parser processes this file, enabling dynamic configuration of ports, server names, file paths, and method restrictions.
+		</p>
+		<p>
+			Some examples of features :
+			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
+				<li><strong class="text-cyan-300">Port and Host:</strong> Defining what address and port the server listens on.</li>
+				<li><strong class="text-cyan-300">Error Pages:</strong> Custom files to be served for specific HTTP error codes (e.g., 404, 500).</li>
+				<li><strong class="text-cyan-300">Client Max Body Size:</strong> Limiting the size of incoming request bodies (essential for preventing large uploads or DDoS attacks).</li>
+				<li><strong class="text-cyan-300">Location Blocks:</strong> Specific settings applied only to certain URL paths (e.g., restricting <code class="text-red-400">DELETE</code> requests to the <code class="bg-gray-700 p-0.5 rounded">/upload</code> directory's content).</li>
+			</ul>
+		</p>
+
+		<!-- CONTAINER FOR IMAGE INSTEAD OF CODE BLOCK -->
+		<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 overflow-hidden my-6 flex items-center justify-center h-64">
+			 <img src="https://placehold.co/700x200/2D3748/06B6D4?text=Configuration+File+Visual+Structure"
+				 alt="Placeholder for a visual representation of the server configuration file structure."
+				 class="max-w-full h-auto object-contain">
+		</div>
+
+		<h2 class="text-3xl font-bold text-cyan-400 mt-16 mb-6 hero-title" id="cgi">Common Gateway Interface (CGI)</h2>
+		<p>
+			A static server can only serve files. To introduce dynamic content and run external scripts (like Python or PHP), we implemented support for the Common Gateway Interface (CGI).
+		</p>
+		<p>
+			The CGI implementation enables the server to:
+			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
+				<li>Create a separate process to execute the external script.</li>
+				<li>Use Request metadata (method, query string, headers) as environment variables (e.g., <code class="bg-gray-700 p-0.5 rounded">REQUEST_METHOD</code>, <code class="bg-gray-700 p-0.5 rounded">QUERY_STRING</code>).</li>
+				<li>**Pipe I/O:** The server uses pipes (<code class="bg-gray-700 p-0.5 rounded">pipe()</code>) to redirect the script's standard output back to the server.</li>
+				<li>**Send Response:** The server reads the output from the script, wraps it in the appropriate HTTP headers, and sends the final dynamic content back to the client.</li>
+			</ul>
+			The CGI is implemented using process management functions such as <code class="bg-gray-700 p-0.5 rounded">fork()</code>, <code class="bg-gray-700 p-0.5 rounded">dup2()</code>, <code class="bg-gray-700 p-0.5 rounded">execve()</code> and <code class="bg-gray-700 p-0.5 rounded">pipe()</code>.
+			The script (e.g. Python, Php, Perl) is being executed, and the output is being send to the client as the response's body.
+
+		</p>
 
 
 	</main>
