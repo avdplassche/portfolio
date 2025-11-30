@@ -132,7 +132,7 @@
 		<!--<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-black">-->
 			<!-- Placeholder for the flow diagram image provided by the user (image_7939f7.png) -->
 			<figure class="mb-8">
-				<img src="../images/webserv_data_flow.png"
+				<img src="../images/webserv_data_flow_01.png"
 				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
 				class="w-full h-auto object-contain">
 				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
@@ -155,7 +155,7 @@
 			<code class="bg-gray-700 p-0.5 rounded">poll</code> automatically monitors a large set of non-blocking file descriptors (FDs) to determine which ones are ready for I/O operations (reading or writing) so we don't need to rely on multithreading.
 		</p>
 
-		   <h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="request-response">Anatomy of HTTP: Requests and Responses</h2>
+			<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="request-response">Anatomy of HTTP: Requests and Responses</h2>
 		<p>
 			The fundamental unit of communication in our web server is the exchange of HTTP Request and Response.
 			Correctly parsing and generating these messages is crucial for protocol compliance.
@@ -217,8 +217,7 @@
 			</div>
 		</div>
 
-
-		<h2 class="text-3xl font-bold text-cyan-400 mt-16 mb-6 hero-title" id="config-file">The NGINX-like Configuration File</h2>
+		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="config-file">The NGINX-like Configuration File</h2>
 		<p>
 			To allow flexible setup and easy configuration of multiple servers, we designed a custom configuration file format heavily inspired by NGINX.
 			Our C++ parser processes this file, enabling dynamic configuration of ports, server names, file paths, and method restrictions.
@@ -233,28 +232,59 @@
 			</ul>
 		</p>
 
-		<!-- CONTAINER FOR IMAGE INSTEAD OF CODE BLOCK -->
-		<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 overflow-hidden my-6 flex items-center justify-center h-64">
-			 <img src="https://placehold.co/700x200/2D3748/06B6D4?text=Configuration+File+Visual+Structure"
-				 alt="Placeholder for a visual representation of the server configuration file structure."
-				 class="max-w-full h-auto object-contain">
-		</div>
 
+		 <!-- Sample Configuration File -->
+	<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 overflow-x-auto text-sm my-6">
+		<pre class="text-white">
+			<span class="text-cyan-400">server</span> {
+
+				<span class="text-yellow-400">name</span>						moteurX;
+				<span class="text-yellow-400">interface</span>					localhost;
+				<span class="text-yellow-400">listen</span>						4242;
+				<span class="text-yellow-400">send_timeout</span>				60;
+				<span class="text-yellow-400">error_pages</span>				400 404 417 /www/4xx.html;
+				<span class="text-yellow-400">chunk_size</span>					16384;
+
+				<span class="text-cyan-400">location</span> / {
+					<span class="text-yellow-400">root</span>					/www;
+					<span class="text-yellow-400">methods</span>				GET/POST/DELETE;
+					<span class="text-yellow-400">index</span>					index.html index.htm;
+				}
+				<span class="text-cyan-400">location</span> /cgi-bin {
+					<span class="text-yellow-400">root</span>					/;
+					<span class="text-yellow-400">index</span>					hello.py;
+					<span class="text-yellow-400">methods</span>				GET/POST/DELETE;
+					<span class="text-yellow-400">upload_authorized</span>		on;
+					<span class="text-yellow-400">storage_location</span>		www/upload;
+					<span class="text-yellow-400">autoindex</span>				off;
+					<span class="text-yellow-400">cgi_path</span>				/usr/bin/python3;
+					<span class="text-yellow-400">cgi_ext</span>				.py;
+				}
+				<span class="text-cyan-400">location</span> /upload {
+					<span class="text-yellow-400">root</span>					/;
+					<span class="text-yellow-400">autoindex</span>				on;
+					<span class="text-yellow-400">methods</span>				GET/POST/DELETE;
+					<span class="text-yellow-400">client_max_body_size</span>	1;
+					<span class="text-yellow-400">upload_authorized</span>		on;
+					<span class="text-yellow-400">storage_location</span>		/;
+				}
+				<span class="text-cyan-400">location</span> /search {
+					<span class="text-blue-300">return</span>					301 /upload;
+				}
+			}
+		</pre>
+	</div>
+			<!-- END Sample Configuration File -->
+
+
+		<!-- CONTAINER FOR IMAGE INSTEAD OF CODE BLOCK -->
 		<h2 class="text-3xl font-bold text-cyan-400 mt-16 mb-6 hero-title" id="cgi">Common Gateway Interface (CGI)</h2>
 		<p>
 			A static server can only serve files. To introduce dynamic content and run external scripts (like Python or PHP), we implemented support for the Common Gateway Interface (CGI).
 		</p>
 		<p>
-			The CGI implementation enables the server to:
-			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
-				<li>Create a separate process to execute the external script.</li>
-				<li>Use Request metadata (method, query string, headers) as environment variables (e.g., <code class="bg-gray-700 p-0.5 rounded">REQUEST_METHOD</code>, <code class="bg-gray-700 p-0.5 rounded">QUERY_STRING</code>).</li>
-				<li>**Pipe I/O:** The server uses pipes (<code class="bg-gray-700 p-0.5 rounded">pipe()</code>) to redirect the script's standard output back to the server.</li>
-				<li>**Send Response:** The server reads the output from the script, wraps it in the appropriate HTTP headers, and sends the final dynamic content back to the client.</li>
-			</ul>
 			The CGI is implemented using process management functions such as <code class="bg-gray-700 p-0.5 rounded">fork()</code>, <code class="bg-gray-700 p-0.5 rounded">dup2()</code>, <code class="bg-gray-700 p-0.5 rounded">execve()</code> and <code class="bg-gray-700 p-0.5 rounded">pipe()</code>.
 			The script (e.g. Python, Php, Perl) is being executed, and the output is being send to the client as the response's body.
-
 		</p>
 
 
