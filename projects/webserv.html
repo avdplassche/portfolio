@@ -62,7 +62,7 @@
 <body class="min-h-screen">
 
 	<!-- NAVIGATION BAR -->
-	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
+	<header class="sticky t1op-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
 		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
 			<div class="flex space-x-4 text-lg font-medium">
 				<!-- Links updated to reference relative paths -->
@@ -71,6 +71,8 @@
 				<a href="../work.html" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
 				<span class="text-gray-600">/</span>
 				<a href="../cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
+				<span class="text-gray-600">/</span>
+                <a href="../about.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
 				<a href="../contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
 			</div>
@@ -82,7 +84,7 @@
 		<!-- HEADER AND LINKS -->
 		<div class="mb-12 border-b border-gray-700 pb-8">
 			<!-- Link updated to reference relative paths -->
-			<a href="work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
+			<a href="../work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
 
 			<!-- Project Title -->
 			<h1 class="text-5xl sm:text-6xl font-extrabold text-blue-300 mb-4 hero-title">Webserv</h1>
@@ -97,6 +99,15 @@
 			<!-- GitHub Link -->
 			<a href="https://github.com/yourusername/webserv" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-cyan-400 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Source Code on GitHub</a>
 		</div>
+
+		<div class="inline-flex items-center space-x-2 px-4 py-2 bg-amber-900/50 text-amber-300 rounded-lg border border-amber-700">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+				<path fill-rule="evenodd" d="M8.257 3.099c.765-1.427 2.65-1.427 3.414 0l.75 1.401 1.761.343a2.25 2.25 0 011.233 1.233l.343 1.761 1.401.75c1.427.765 1.427 2.65 0 3.414l-1.401.75-.343 1.761a2.25 2.25 0 01-1.233 1.233l-1.761.343-.75 1.401c-.765 1.427-2.65 1.427-3.414 0l-.75-1.401-1.761-.343a2.25 2.25 0 01-1.233-1.233l-.343-1.761-1.401-.75c-1.427-.765-1.427-2.65 0-3.414l1.401-.75.343-1.761a2.25 2.25 0 011.233-1.233l1.761-.343.75-1.401zM10 12.75a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" clip-rule="evenodd" />
+			</svg>
+			<span class="text-sm font-semibold tracking-wide">WORK IN PROGRESS</span>
+		</div>
+		<br><br>
+
 
 		<!-- MAIN PROJECT IMAGE/DEMO -->
 		<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700">
@@ -113,7 +124,7 @@
 			This project served as an intensive deep dive into network programming, multi-client communication, and parsing complex HTTP requests.
 		</p>
 		<p class="text-lg">
-		This project was completed during the 42 common core, in collaboration with John Doe.
+			This project was completed during the 42 common core, in collaboration with John Doe.
 		</p>
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">The HTTP Protocol</h3>
 		<p>
@@ -146,8 +157,6 @@
 
 
 		<!-- SECTION: CONNECTION HANDLING (POLL SETUP) -->
-
-
 
 
 		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="poll-setup">I/O Multiplexing with `poll`</h2>
@@ -186,7 +195,7 @@
 				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
 				class="w-full h-auto object-contain">
 				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
-					Screenshots showing our server's received Request Lines and sent Status lines.
+					Screenshots showing communication between Firefox and our server.
 				</figcaption>
 			</figure>
 
@@ -242,34 +251,35 @@
 				<span class="text-yellow-400">interface</span>					localhost;
 				<span class="text-yellow-400">listen</span>						4242;
 				<span class="text-yellow-400">send_timeout</span>				60;
-				<span class="text-yellow-400">error_pages</span>				400 404 417 /www/4xx.html;
+				<span class="text-yellow-400">error_pages</span>					400 404 417 /www/4xx.html;
 				<span class="text-yellow-400">chunk_size</span>					16384;
 
 				<span class="text-cyan-400">location</span> / {
 					<span class="text-yellow-400">root</span>					/www;
-					<span class="text-yellow-400">methods</span>				GET/POST/DELETE;
+					<span class="text-yellow-400">methods</span>					GET;
 					<span class="text-yellow-400">index</span>					index.html index.htm;
+					<span class="text-yellow-400">client_max_body_size</span>	1000;
 				}
 				<span class="text-cyan-400">location</span> /cgi-bin {
 					<span class="text-yellow-400">root</span>					/;
 					<span class="text-yellow-400">index</span>					hello.py;
-					<span class="text-yellow-400">methods</span>				GET/POST/DELETE;
+					<span class="text-yellow-400">methods</span>					GET;
 					<span class="text-yellow-400">upload_authorized</span>		on;
 					<span class="text-yellow-400">storage_location</span>		www/upload;
 					<span class="text-yellow-400">autoindex</span>				off;
 					<span class="text-yellow-400">cgi_path</span>				/usr/bin/python3;
-					<span class="text-yellow-400">cgi_ext</span>				.py;
+					<span class="text-yellow-400">cgi_ext</span>					.py;
 				}
 				<span class="text-cyan-400">location</span> /upload {
 					<span class="text-yellow-400">root</span>					/;
 					<span class="text-yellow-400">autoindex</span>				on;
-					<span class="text-yellow-400">methods</span>				GET/POST/DELETE;
-					<span class="text-yellow-400">client_max_body_size</span>	1;
+					<span class="text-yellow-400">methods</span>					GET/POST/DELETE;
+					<span class="text-yellow-400">client_max_body_size</span>	100000;
 					<span class="text-yellow-400">upload_authorized</span>		on;
 					<span class="text-yellow-400">storage_location</span>		/;
 				}
 				<span class="text-cyan-400">location</span> /search {
-					<span class="text-blue-300">return</span>					301 /upload;
+					<span class="text-yellow-400">return</span>					301 /upload;
 				}
 			}
 		</pre>

@@ -44,6 +44,12 @@
 			margin-bottom: 1.5rem;
 			color: #ccc;
 		}
+			.intersection-code {
+			background-color: #1F2937; /* Even darker shade for code block (gray-800) */
+			padding: 1.5rem;
+			border-radius: 0.5rem;
+			box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+		}
 	</style>
 </head>
 <body class="min-h-screen">
@@ -58,6 +64,8 @@
 				<span class="text-gray-600">/</span>
 				<a href="../cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
 				<span class="text-gray-600">/</span>
+                <a href="../about.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
+				<span class="text-gray-600">/</span>
 				<a href="../contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
 			</div>
 		</nav>
@@ -67,7 +75,7 @@
 
 		<!-- HEADER AND LINKS -->
 		<div class="mb-12 border-b border-gray-700 pb-8">
-			<a href="work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
+			<a href="../work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
 
 			<!-- Project Title -->
 			<h1 class="text-5xl sm:text-6xl font-extrabold text-blue-200 mb-4 hero-title">MiniRT</h1>
@@ -234,7 +242,53 @@
 		<p>
 			If a ray hits multiple objects, we only care about the <b>very first object</b> it hits—the closest one to the camera. That's the one we'll color in.
 		</p>
+
+		<!-- Sphere Intersection Code Snippet -->
+		<div class="intersection-code overflow-x-auto text-sm my-6">
+			<h3 class="text-xl font-semibold text-white mb-4">C implementation example : the sphere intersection calculation</h3>
+			<pre class="text-white">
+<span class="text-yellow-400">int</span> <span class="text-blue-300">get_sphere_inter</span>(<span class="text-yellow-400">const</span> t_object *object,
+	<span class="text-yellow-400">const</span> t_ray *ray, t_inter_list *list)
+{
+	<span class="text-yellow-400">t_vec3</span>  oc; <span class="text-gray-400">// Vector from Ray Origin to Sphere Center</span>
+	<span class="text-yellow-400">double</span>  a;
+	<span class="text-yellow-400">double</span>  b;
+	<span class="text-yellow-400">double</span>  c;
+	<span class="text-yellow-400">double</span>  discriminant;
+
+	oc = <span class="text-blue-300">vec3_vec_substraction</span>(ray->origin, <span class="text-blue-300">get_point3</span>(0, 0, 0));
+	a = <span class="text-blue-300">vec3_dot</span>(ray->dir, ray->dir);
+	b = 2.0 * <span class="text-blue-300">vec3_dot</span>(ray->dir, oc);
+	c = <span class="text-blue-300">vec3_dot</span>(oc, oc) - 1;
+	discriminant = (b * b) - (4 * a * c);
+
+	<span class="text-yellow-400">if</span> (discriminant < 0) <span class="text-gray-400">// Ray misses the sphere</span>
+		<span class="text-blue-300">return</span> (0);
+
+	<span class="text-gray-400">// Calculate the two solutions for t (t0 and t1) and add them to the intersection list</span>
+	list->inters[list->count].t = ((-b - <span class="text-blue-300">sqrt</span>(discriminant)) / (2.0 * a));
+	list->inters[list->count].obj = object;
+	list->count++;
+	list->inters[list->count].t = ((-b + <span class="text-blue-300">sqrt</span>(discriminant)) / (2.0 * a));
+	list->inters[list->count].obj = object;
+	list->count++;
+	<span class="text-blue-300">return</span> (0);
+}
+			</pre>
+		</div>
+		<p>
+			In our project, we simplify intersection testing by defining all shapes relative to the origin (local space).
+			Instead of moving the shape into world space using transformation matrices (rotation, translation, scaling) for every ray, we transform the ray itself by the inverse of the object's transformation matrix.
+			This is known as Object Space Intersection.
+		</p>
+
+
 		<!-- --- END RAY GENERATION AND INTERSECTION SECTION --- -->
+
+
+
+
+
 
 
 		<!-- --- PHONG SHADING MODEL SECTION (New/Relocated) --- -->
