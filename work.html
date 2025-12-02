@@ -18,13 +18,16 @@
 
 		body {
 			font-family: 'IBM Plex Mono', monospace;
-			background-color: var(--color-bg);
+			/*background-color: var(--color-bg);*/
+
+			background-image: url('images/background_gradient_03.jpg');
+			background-size: cover; /* Ensure image covers the entire viewport */
+			background-position: center center; /* Center the image */
+			background-repeat: no-repeat;
+			background-attachment: fixed; /* Fix the background position for parallax scroll effect */
+			background-color: var(--color-bg); /* Fallback color */
 			color: var(--color-text);
 			scroll-behavior: smooth;
-		}
-
-		.hero-title {
-			font-family: 'Montserrat', sans-serif;
 		}
 	</style>
 </head>
@@ -34,13 +37,9 @@
 	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
 		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
 			<div class="flex space-x-4 text-lg font-medium">
-				<a href="index.html" class="text-gray-400 hover:text-white transition duration-200">home</a>
+				<a href="index.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
 				<a href="work.html" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
-				<span class="text-gray-600">/</span>
-                <a href="../about.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
 				<a href="contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
 			</div>
@@ -50,11 +49,11 @@
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
 		<!-- PROJECTS GRID -->
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 ">
 
 
 			<!-- NEW PROJECT CARD 0: Simulation Engine (WIP added here) -->
-			<div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="bg-opacity-90 bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
 
 				<a href="projects/simulation_engine.html">
 					<div class="mb-6 overflow-hidden border border-gray-700">
@@ -92,7 +91,7 @@
 
 
 			<!-- PROJECT CARD 1: Webserv -->
-			<div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="bg-opacity-90 bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
 
 				<a href="projects/webserv.html">
 				<div class="mb-6 overflow-hidden border border-gray-700">
@@ -122,7 +121,7 @@
 			</div>
 
 			<!-- PROJECT CARD 2: Minirt -->
-			<div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="bg-opacity-90 bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
 
 				<a href="projects/minirt.html">
 				<div class="mb-6 overflow-hidden border border-gray-700">
@@ -152,7 +151,7 @@
 			</div>
 
 			<!-- PROJECT CARD 3: Minishell -->
-			<div class="bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="bg-opacity-90 bg-gray-800 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
 
 				<a href="projects/minishell.html">
 				<div class="mb-6 overflow-hidden border border-gray-700">

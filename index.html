@@ -1,119 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Alexandre | Portfolio</title>
-	<!-- Load Tailwind CSS -->
-	<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexandre | System Programmer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-	<!-- Load IBM Plex Mono (Monospace for code/tech feel) and Montserrat (for bold titles) -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <!-- Load IBM Plex Mono (Monospace for code/tech feel) and Montserrat (for bold titles) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 
-	<!-- Custom Style Block for Dark Theme and Gradient -->
-	<style>
-		/* Base Dark Theme Colors */
-		:root {
-			--color-bg: #1A1A1A; /* Dark Charcoal Background */
-			--color-text: #F0F0F0; /* Off-White Text */
-			--color-accent: #7C3AED; /* Purple/Violet Accent for links/buttons */
-		}
+    <!-- Custom Style Block for Dark Theme & Layout -->
+    <style>
+        /* ORIGINAL PROFESSIONAL DARK THEME TOKENS */
+        :root {
+            --color-bg: #1A1A1A;
+            --color-card-bg: #222222; /* Slightly darker than BG for contrast */
+            --color-text: #F0F0F0;
+            --color-accent: #06B6D4; /* Cyan Accent */
+            --color-border: #333333;
+        }
+        #p5-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10; /* Behind all content */
+            pointer-events: none; /* Mouse events pass through */
+        }
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            scroll-behavior: smooth;
+        }
+        .info-rectangle {
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease-in-out;
+            background-color: rgba(34, 34, 34, 0.95); /* Semi-transparent card BG */
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.5rem;
+            position: relative;
+        }
 
-		body {
-			font-family: 'IBM Plex Mono', monospace;
-			background-color: var(--color-bg);
-			color: var(--color-text);
-			scroll-behavior: smooth;
-		}
 
-		/* Hero Background Gradient (Simulates your Figma gradient background without needing the file) */
-		.hero-bg {
-			/* This is a CSS gradient that mimics the dark, grainy, red/blue look of your image */
-			background:
-				url('images/background_gradient_07.png'); /* YOUR IMAGE */
-			background-size: cover; /* Ensures the 'gradient' covers the whole section */
-			background-position: center;
-		}
+        .info-rectangle:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px); /* Slight lift for interactivity */
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.2); /* Cyan glow on hover */
+        }
 
-		/* Navigation: Implement the hover dim effect from your Figma prototype */
-		.nav-link {
-			transition: opacity 0.3s, color 0.3s;
-		}
+        /* Styling for the main header text */
+        .main-title {
+            font-family: 'Geist';
+            /*font-family: 'IBM Plex Mono', monospace;*/
+            /*border-bottom: 2px solid var(--color-accent);*/
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
 
-		/* When hovering over the container, all non-hovered links dim */
-		.nav-container:hover .nav-link:not(:hover) {
-			opacity: 0.5;
-		}
-		.nav-link:hover {
-			opacity: 1; /* Ensure hovered link is always 100% */
-			color: var(--color-accent);
-		}
-
-		/* Typography for the Hero Title */
-		.hero-title {
-			font-family: 'Montserrat', sans-serif;
-		}
-
-		.subtle-text-shadow {
-			/* Small, soft white shadow to make the text pop */
-			text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.15);
-		}
-	</style>
+        /* Ensure header background is solid for readability over the background image */
+        header {
+            background-color: #1A1A1A;
+            /*background-opacity: 1;*/
+            backdrop-filter: blur(8px);
+        }
+        .hero-title {
+            font-family: 'Geist';
+            color:#F0F0F0;
+            opacity:0.8;
+            /*font-family: 'Space Grotesk', sans-serif; //NEW FONT FOR NAME*/
+            text-shadow: 0 0 6px rgba(200, 200, 200, 0.2), 0 0 8px rgba(200, 200, 200, 0.1);
+        }
+    </style>
 </head>
 <body class="min-h-screen">
 
-	<!-- NAVIGATION BAR (Fixed at the top) -->
-	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
-		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
-			<!-- nav-container class enables the hover dim effect -->
-			<div class="nav-container flex space-x-4 text-lg font-medium">
-				<a href="index.html" class="nav-link active text-white transition duration-200">home</a>
-				<span class="text-gray-600">/</span>
-				<a href="work.html" class="nav-link text-gray-400 hover:text-white transition duration-200">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="cv.html" class="nav-link text-gray-400 hover:text-white transition duration-200">cv</a>
-				<span class="text-gray-600">/</span>
-                <a href="about.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
-				<span class="text-gray-600">/</span>
-				<a href="contact.html" class="nav-link text-gray-400 hover:text-white transition duration-200">contact</a>
-			</div>
-		</nav>
-	</header>
+    <div id="p5-container"></div>
 
-	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
+        <nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
+            <div class="flex space-x-4 text-lg font-medium">
+                <a href="index.html" class="text-white transition duration-200" style="color:var(--color-accent);">about me</a>
+                <span class="text-gray-600">/</span>
+                <a href="work.html" class="text-gray-400 hover:text-white transition duration-200">work</a>
+                <span class="text-gray-600">/</span>
+                <a href="contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
+            </div>
+        </nav>
+    </header>
 
-		<!-- HERO SECTION (Full Height) -->
-		<section id="hero" class="hero-bg min-h-[calc(100vh-80px)] flex flex-col justify-center items-start text-left p-8 rounded-xl shadow-2xl mt-8 mb-20">
-			<div class="max-w-4xl w-full">
-				<!-- Large, Montserrat Title - Reduced size for better fit -->
-				<h1 class="text-5xl sm:text-7xl lg:text-8xl leading-none font-extrabold hero-title text-gray-100 mb-6 tracking-tight subtle-text-shadow">
-					ALEXANDRE
-				</h1>
-				<h1 class="text-5xl sm:text-7xl lg:text-8xl leading-none font-extrabold hero-title text-gray-300 mb-12 tracking-tight subtle-text-shadow">
-					VAN DER PLASSCHE
-				</h1>
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
-				<!-- Monospace Tagline - Color changed to light blue (text-blue-300) -->
-				<p class="text-xl sm:text-2xl text-blue-300 font-normal tracking-wider uppercase ml-1">
-					SOFTWARE DEVELOPMENT.
-				</p>
+        <!-- MAIN PAGE TITLE & SUBTITLE -->
+        <div class="mb-16 text-left pt-8">
+            <h1 class="text-8xl sm:text-10xl font-extrabold hero-title ">
+                Alexandre
+            </h1>
+            <p class="text-7xl sm:text-8xl font-extrabold hero-title  mt-2">
+                Van der Plassche
+            </p>
+            <p class="text-xl text-gray-500 mt-6 tracking-widest uppercase">
+                Software Development.<br><br><br><br><br><br>
+            </p>
+        </div>
 
-				<!-- Small Call to Action -->
-				<a href="work.html" class="mt-16 inline-block text-lg font-semibold px-6 py-3 border-2 border-2 border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-white transition duration-300 rounded-lg">
-					See My Projects
-				</a>
-			</div>
-		</section>
+        <!-- THREE STACKED RECTANGLES (ROWS) -->
+        <div class="grid grid-cols-1 gap-12">
 
-	</main>
+            <!-- RECTANGLE 1: PRESENTATION (THE HOOK) -->
+            <section class="info-rectangle">
+                <h2 class="text-3xl font-bold main-title">Who Am I ?</h2>
+                <p>
+                    I'm Alexandre, a computer science passionate, almost obsesionate.
+                </p>
+                <p>
+                    I'm studying at 42 Lausanne where I'm currently <b>top 10</b> students of the september 2024 promotion.
+                </p>
+                <p>
+                    I love low level programming, creative coding, computer simulation and data vizualisation.
+                </p>
+                <p>
+                    Curious, creative and rational are what's describe me best.
+                </p>
 
-	<!-- FOOTER -->
-	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
-		<p>&copy; 2025 Alexandre Van Der Plassche</p>
-	</footer>
+            </section>
 
+            <!-- RECTANGLE 2: SKILLS / TOOLS -->
+            <section class="info-rectangle">
+                <!--<h2 class="text-3xl font-bold main-title">2. Skills / Tools & Proficiency</h2>-->
+                <p class="text-lg text-gray-400">// This section will list C, C++, Bash/Linux, Data Structures, and graphics libraries.</p>
+                <!-- Content will use star ratings or skill bars -->
+            </section>
+
+            <!-- RECTANGLE 3: PERSONALITY / PASSIONS -->
+            <section class="info-rectangle">
+                <!--<h2 class="text-3xl font-bold main-title">3. Personality, Drive & Passion</h2>-->
+                <p class="text-lg text-gray-400">// This is for transferable skills like creativity, strategic thinking, and emotional intelligence.</p>
+                <!-- Content will connect music, gaming, and economics to professional traits -->
+            </section>
+
+        </div>
+    </main>
+
+
+    <!-- FOOTER - Reverting to original look -->
+    <footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
+        <p>&copy; 2025 Alexandre Van Der Plassche.</p>
+    </footer>
+
+	<script src="js/recursive_tree.js"></script>
 </body>
 </html>
-

@@ -60,14 +60,9 @@
 	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
 		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
 			<div class="flex space-x-4 text-lg font-medium">
-				<!-- Links updated to reference relative paths -->
-				<a href="../index.html" class="text-gray-400 hover:text-white transition duration-200">home</a>
+				<a href="../index.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
 				<a href="../work.html" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="../cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
-				<span class="text-gray-600">/</span>
-                <a href="../about.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
 				<a href="../contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
 			</div>
@@ -121,7 +116,7 @@
 			This project is a high-performance desktop application designed for building and running complex physical and rule-based simulations, such as particle systems and cellular automata.
 		</p>
 		<p class="text-lg">
-			Built from scratch using C++ and SDL3, my primary goal is to create the structure for a higly malleable program by building my own UI.
+			Built from scratch using C++ and SDL3, my primary task is to create the structure for a higly malleable program by building my own UI.
 		</p>
 		<p class="text-lg">
 			At the moment, the main goal is to implement a simple <b>Conway's Game of Life</b> to try my UI out and resolve issues if needed.
@@ -132,6 +127,7 @@
 				<li>A Midi Step Sequencer</li>
 				<li>An Acoustic Fingerprinting System</li>
 				<li>Creative Coding</li>
+				<li>A sound Ray Tracer</li>
 			</ul>
 		</p>
 
@@ -143,7 +139,7 @@
 		<section class="mb-10">
 			<h3 class="text-3xl font-bold mb-4 text-blue-200 hero-title">Why my own engine ?</h2>
 			<p>I chose to develop a custom graphical user interface (GUI) from scratch.
-				The goal is to challenge myself, learn deeper how to strucure a project and gain full low-level control over it.</p>
+				The main reason is to challenge myself, learn deeper how to strucure a project and gain full low-level control over it.</p>
 
 
 		 <!-- PROJECT ARCHITECTURE: Completed Core Systems -->
@@ -159,10 +155,10 @@
 					Recursive Node-Based Menu System
 				</h3>
 				<p class="text-gray-400">
-					I created the menu using a Recursive Descent Parser.
+					I created the menu using a <b>Recursive Descent Parser</b>.
 					It takes a file with indentation and automatically generates a tree structure from it.
 					Each menu item is a node that can contain sub-nodes.
-					This is made so I can easily and quickly modify each node from the file, and at the end I only need to map the menu buttons (ACTIONS ones, see bellow) to their corresponding actions.
+					This is made so I can easily and quickly modify each node from the file, and at the end I only need to map the menu buttons (the ACTIONS ones bellow) to their corresponding actions.
 				</p>
 
 				<!-- Screenshot Grid with Captions (Legend) -->

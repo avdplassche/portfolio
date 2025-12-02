@@ -1,109 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre | Contact</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alexandre | Contact</title>
+	<!-- Load Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Load IBM Plex Mono (Monospace for code/tech feel) and Montserrat (for bold titles) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+	<!-- Load IBM Plex Mono (Monospace for code/tech feel) and Montserrat (for bold titles) -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
 
-    <!-- Custom Style Block for Dark Theme -->
-    <style>
-        /* Base Dark Theme Colors */
-        :root {
-            --color-bg: #1A1A1A; /* Dark Charcoal Background */
-            --color-text: #F0F0F0; /* Off-White Text */
-            --color-accent: #06B6D4; /* Cyan Accent */
-        }
+	<!-- Custom Style Block for Dark Theme -->
+	<style>
+		/* Base Dark Theme Colors */
+		:root {
+			--color-bg: #1A1A1A; /* Dark Charcoal Background */
+			--color-text: #F0F0F0; /* Off-White Text */
+			--color-accent: #06B6D4; /* Cyan Accent */
+		}
 
-        body {
-            font-family: 'IBM Plex Mono', monospace; /* Monospace for technical feel */
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            scroll-behavior: smooth;
-        }
+		body {
+			font-family: 'IBM Plex Mono', monospace; /* Monospace for technical feel */
+			background-color: var(--color-bg);
+			color: var(--color-text);
+			scroll-behavior: smooth;
+		}
 
-        .nav-link.active {
-            color: var(--color-accent);
-        }
+		.nav-link.active {
+			color: var(--color-accent);
+		}
 
-        .hero-title {
-            font-family: 'Montserrat', sans-serif;
-        }
-    </style>
+		.hero-title {
+			font-family: 'Montserrat', sans-serif;
+		}
+	</style>
 </head>
 <body class="min-h-screen">
 
-    <!-- NAVIGATION BAR (kept consistent with active page styling) -->
-    <header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
-        <nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
-            <div class="flex space-x-4 text-lg font-medium">
-                <a href="index.html" class="text-gray-400 hover:text-white transition duration-200">home</a>
-                <span class="text-gray-600">/</span>
-                <a href="work.html" class="text-gray-400 hover:text-white transition duration-200">work</a>
-                <span class="text-gray-600">/</span>
-                <a href="cv.html" class="text-gray-400 hover:text-white transition duration-200">cv</a>
+	<!-- NAVIGATION BAR (kept consistent with active page styling) -->
+	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
+		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
+			<div class="flex space-x-4 text-lg font-medium">
+				<a href="index.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
-                <a href="about.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
-                <span class="text-gray-600">/</span>
-                <span class="text-white" style="color:var(--color-accent);">contact</span>
-            </div>
-        </nav>
-    </header>
+				<a href="work.html" class="text-gray-400 hover:text-white transition duration-200">work</a>
+				<span class="text-gray-600">/</span>
+				<a href="contact.html" class="text-white transition duration-200" style="color:var(--color-accent);">contact</a>
+			</div>
+		</nav>
+	</header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
-        <!-- CONTACT SECTION -->
-        <!-- H1 /CONTACT has been removed here -->
-        <section id="contact" class="flex flex-col items-center text-center">
+	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
-            <!-- Updated Catchphrase -->
-            <p class="text-xl text-gray-400 max-w-2xl mb-12">
-                You will find my professional links below.
-            </p>
+		<!-- CONTACT SECTION -->
+		<!-- H1 /CONTACT has been removed here -->
+		<section id="contact" class="flex flex-col items-center text-center">
 
-            <!-- Contact Links Grid -->
-            <div class="flex flex-col space-y-8 w-full max-w-lg">
+			<!-- Updated Catchphrase -->
+			<p class="text-xl text-gray-400 max-w-2xl mb-12">
+				You will find my professional links below.
+			</p>
 
-                <!-- 1. Email Link -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-1">Email</h2>
-                    <a href="mailto:vanderplassche.alexandre@gmail.com" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
-                        vanderplassche.alexandre@gmail.com
-                    </a>
-                </div>
+			<!-- Contact Links Grid -->
+			<div class="flex flex-col space-y-8 w-full max-w-lg">
 
-                <!-- 2. GitHub Link -->
-                <div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-1">GitHub</h2>
-                    <a href="https://github.com/avdplassche" target="_blank" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
-                        /avdplassche
-                    </a>
-                </div>
+				<!-- 1. Email Link -->
+				<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
+					<h2 class="text-lg font-semibold text-gray-300 mb-1">Email</h2>
+					<a href="mailto:vanderplassche.alexandre@gmail.com" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
+						vanderplassche.alexandre@gmail.com
+					</a>
+				</div>
 
-                <!-- 3. LinkedIn Link -->
-                <!--<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
-                    <h2 class="text-lg font-semibold text-gray-300 mb-1">LinkedIn</h2>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
-                        /in/yourprofile
-                    </a>
-                </div>-->
+				<!-- 2. GitHub Link -->
+				<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
+					<h2 class="text-lg font-semibold text-gray-300 mb-1">GitHub</h2>
+					<a href="https://github.com/avdplassche" target="_blank" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
+						/avdplassche
+					</a>
+				</div>
 
-            </div>
 
-        </section>
+			</div>
 
-    </main>
+		</section>
 
-    <!-- FOOTER -->
-    <footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
-        <p>&copy; 2025 Alexandre Van Der Plassche.</p>
-    </footer>
+	</main>
+
+	<!-- FOOTER -->
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
+		<p>&copy; 2025 Alexandre Van Der Plassche.</p>
+	</footer>
 
 </body>
 </html>
