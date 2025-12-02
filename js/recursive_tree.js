@@ -22,7 +22,6 @@ const sketch = (p) => {
 		// 2. Initial rotation for a slight sway effect (based on time)
 		let swayAngle = p.sin(p.frameCount * 0.5) * 2; // Subtle +/- 2 degrees
 		p.rotate(swayAngle);
-		p.rotate(270);
 
 		// 3. Start the recursive drawing
 		// Start with a branch length relative to the screen height
