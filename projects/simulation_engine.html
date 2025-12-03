@@ -21,8 +21,16 @@
 			--color-title: #93C5FD; /* Blue 300 (Matching minirt) */
 		}
 
+
 		body {
+			background-image: url("../images/background_gradient_05.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
 			font-family: 'IBM Plex Mono', monospace;
+			/*font-family: 'Roboto', sans-serif;*/
+
 			background-color: var(--color-bg);
 			color: var(--color-text);
 			scroll-behavior: smooth;
@@ -119,7 +127,7 @@
 			Built from scratch using C++ and SDL3, my primary task is to create the structure for a higly malleable program by building my own UI.
 		</p>
 		<p class="text-lg">
-			At the moment, the main goal is to implement a simple <b>Conway's Game of Life</b> to try my UI out and resolve issues if needed.
+			At the moment, the main goal is to implement a simple <b>Conway's Game of Life</b> to test UI and resolve issues if needed.
 			Then, here is a list of examples of what could be done with it :
 			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
 				<li>An Ecosystem Simulator</li>
@@ -127,7 +135,7 @@
 				<li>A Midi Step Sequencer</li>
 				<li>An Acoustic Fingerprinting System</li>
 				<li>Creative Coding</li>
-				<li>A sound Ray Tracer</li>
+				<li>A Sound Ray Tracer</li>
 			</ul>
 		</p>
 
@@ -258,9 +266,8 @@
 
 	</main>
 
-	<!-- FOOTER -->
-	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
-		<p>&copy; 2025 Alexandre Van Der Plassche.</p>
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
+		<p>&copy; 2025 Alexandre Van Der Plassche</p>
 	</footer>
 
 </body>

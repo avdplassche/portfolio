@@ -4,18 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Alexandre | System Programmer</title>
-	<!-- Load Tailwind CSS -->
 	<script src="https://cdn.tailwindcss.com"></script>
 
-	<!-- Load IBM Plex Mono (Monospace for code/tech feel) and Montserrat (for bold titles) -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-
-	<!-- Custom Style Block for Dark Theme & Layout -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
 	<style>
-		/* ORIGINAL PROFESSIONAL DARK THEME TOKENS */
 		:root {
 			--color-bg: #1A1A1A;
 			--color-card-bg: #222222; /* Slightly darker than BG for contrast */
@@ -24,42 +19,48 @@
 			--color-border: #333333;
 		}
 		#p5-container {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100vw;
-			height: 100vh;
-			z-index: -10; /* Behind all content */
-			pointer-events: none; /* Mouse events pass through */
+			width: 300px;
+			max-width: 800px;
+			height: 300px;
+			border-radius: 1rem;
+			box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+			overflow: hidden;
+			background-color: #10152D;
+			padding: 2.5rem;
+			position: relative;
 		}
 		body {
-            font-family: 'IBM Plex Mono', monospace;
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            scroll-behavior: smooth;
-        }
-        .info-rectangle {
-            padding: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease-in-out;
-            background-color: rgba(34, 34, 34, 0.95); /* Semi-transparent card BG */
-            border: 1px solid rgba(51, 51, 51, 0.5);
-            border-radius: 0.5rem;
-            position: relative;
-        }
+			font-family: 'IBM Plex Mono', monospace;
 
-
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			align-items: center;
+			background-image: url(images/background_gradient_07_flipped_02.png);
+			/*background-color: rgb(16, 21, 45);*/
+			color: var(--color-text);
+			scroll-behavior: smooth;
+		}
+		.info-rectangle {
+			padding: 2.5rem;
+			/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
+			transition: all 0.3s ease-in-out;
+			background-color: rgba(44, 34, 44, 0.8);
+			/* border: 1px solid rgba(51, 51, 51, 0.5); */
+			border-radius: 0.5rem;
+			position: relative;
+		}
 		.info-rectangle:hover {
-			border-color: var(--color-accent);
+			opacity: 0.9;
+			/* border-color: var(--color-accent); */
 			transform: translateY(-2px); /* Slight lift for interactivity */
-			box-shadow: 0 6px 20px rgba(6, 182, 212, 0.2); /* Cyan glow on hover */
+			box-shadow: 0 3px 10px rgba(6, 182, 212, 0.1); /* Cyan glow on hover */
 		}
 
 		/* Styling for the main header text */
 		.main-title {
-			font-family: 'Geist';
-			/*font-family: 'IBM Plex Mono', monospace;*/
-			/*border-bottom: 2px solid var(--color-accent);*/
+			/*font-family: 'Geist'; - Removed as Geist is not a standard webfont */
 			display: inline-block;
 			padding-bottom: 0.5rem;
 			margin-bottom: 1.5rem;
@@ -68,27 +69,45 @@
 		/* Ensure header background is solid for readability over the background image */
 		header {
 			background-color: #1A1A1A;
-			/*background-opacity: 1;*/
 			backdrop-filter: blur(8px);
 		}
 		.hero-title {
-			font-family: 'Geist';
+			/* font-family: 'Geist'; */
+			font-family: 'Montserrat';
+			/* font-family: 'Roboto'; */
+			/*font-family: 'Geist'; - Removed as Geist is not a standard webfont */
 			color:#F0F0F0;
-			opacity:0.8;
-			/*font-family: 'Space Grotesk', sans-serif; //NEW FONT FOR NAME*/
-			text-shadow: 0 0 6px rgba(200, 0, 100, 0.2), 0 0 8px rgba(0, 100, 100, 0.1);
+			/* opacity:0.8; */
+			text-shadow: 0 0 4px rgba(200, 200, 200, 0.2), 0 0 6px rgba(200, 200, 200, 0.1);
 		}
+
+		/* Specific styles for the new canvas container */
+
+		/* Set a fixed aspect ratio for the visual canvas container */
+		.canvas-box {
+			/*opacity: ;*/
+			background-color: var(--color-card-bg);
+			border-radius: 0.5rem;
+			overflow: hidden;
+			aspect-ratio: 1 / 1;
+			/* max-width: 300px; */
+			/* width: 100%; */
+			display: flex;
+		}
+		/* Style the canvas element created by p5 to fill its parent */
+		/* #p5-container canvas {
+			display: block;
+		} */
+
 	</style>
 </head>
 <body class="min-h-screen">
-
-	<div id="p5-container"></div>
 
 	<!-- NAVIGATION BAR -->
 	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
 		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
 			<div class="flex space-x-4 text-lg font-medium">
-				<a href="index.html" class="text-white transition duration-200" style="color:var(--color-accent);">about me</a>
+				<a href="tree.html" class="text-white transition duration-200" style="color:var(--color-accent);">about me</a>
 				<span class="text-gray-600">/</span>
 				<a href="work.html" class="text-gray-400 hover:text-white transition duration-200">work</a>
 				<span class="text-gray-600">/</span>
@@ -99,62 +118,147 @@
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
-		<!-- MAIN PAGE TITLE & SUBTITLE -->
-		<div class="mb-16 text-left pt-8">
-			<h1 class="text-8xl sm:text-10xl font-extrabold hero-title ">
-				Alexandre
-			</h1>
-			<p class="text-7xl sm:text-8xl font-extrabold hero-title  mt-2">
-				Van der Plassche
-			</p>
-			<p class="text-xl text-gray-500 mt-6 tracking-widest uppercase">
-				Software Development.
-			</p>
+		<!-- MAIN PAGE TITLE & P5 VISUALIZATION -->
+		<!-- Use flex for desktop, stack for mobile (default column) -->
+		<div class="mb-16 pt-8 flex flex-col lg:flex-row justify-left items-left lg:items-end">
+
+			<!-- LEFT SIDE: TITLE TEXT -->
+			<div class="w-full lg:w-3/5 mb-8 lg:mb-0 text-left lg:text-left">
+				<h1 class="text-7xl sm:text-8xl font-extrabold hero-title ">
+					Alexandre
+				</h1>
+				<p class="text-6xl sm:text-7xl font-extrabold hero-title mt-2">
+					Van der Plassche
+				</p>
+				<p class="text-xl text-gray-500 mt-6 tracking-widest uppercase">
+					Software Designer.
+				</p>
+			</div>
+			<!-- <div id="p5-container"></div> -->
 		</div>
 
 		<!-- THREE STACKED RECTANGLES (ROWS) -->
 		<div class="grid grid-cols-1 gap-12">
 
 			<!-- RECTANGLE 1: PRESENTATION (THE HOOK) -->
-			<section class="info-rectangle">
+			<section id="about" class="info-rectangle">
 				<h2 class="text-3xl font-bold main-title">Who Am I ?</h2>
 				<p>
-					I'm Alexandre, a computer science passionate, almost obsesionate.
+					My name is Alexandre, I'm a highly <b>driven</b> and <b>dedicated</b> computer science enthusiast.
 				</p>
 				<p>
-					I'm studying at 42 Lausanne where I'm currently <b>top 10</b> students of the september 2024 promotion.
+					I am a student at <b>42 Lausanne</b>, currently ranked in the <b>top 10</b> of the September 2024 promotion.
 				</p>
 				<p>
-					I love low level programming, creative coding, computer simulation and data vizualisation.
+					My core interests focuse on <b>low-level programming</b>, <b>creative coding</b>, <b>computer simulation</b>, and <b>data visualization</b>.
 				</p>
 				<p>
-					Curious, creative and rational are what's describe me best.
+					I am inherently <b>curious</b>, highly <b>creative</b>, and strongly <b>rational</b>.
 				</p>
 
 			</section>
 
-			<!-- RECTANGLE 2: SKILLS / TOOLS -->
-			<section class="info-rectangle">
-				<!--<h2 class="text-3xl font-bold main-title">2. Skills / Tools & Proficiency</h2>-->
-				<p class="text-lg text-gray-400">// This section will list C, C++, Bash/Linux, Data Structures, and graphics libraries.</p>
-				<!-- Content will use star ratings or skill bars -->
+			<!-- RECTANGLE 2: SKILLS / TOOLS (Populated with Table) -->
+			<section id="work" class="info-rectangle">
+				<h2 class="text-3xl font-bold main-title">Skills & Proficiency</h2>
+
+				<div class="overflow-x-auto border border-gray-700 rounded-lg">
+					<table class="min-w-full divide-y divide-gray-700">
+						<thead class="bg-gray-800">
+							<tr>
+								<th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-400">Language / Tool</th>
+								<th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-400">Experience Level</th>
+							</tr>
+						</thead>
+						<tbody class="divide-y divide-gray-700 text-sm">
+							<tr class="hover:bg-gray-800/50 transition">
+								<td class="px-4 py-3 font-semibold">C, C++</td>
+								<td class="px-4 py-3 text-green-400 font-medium">High</td>
+							</tr>
+							<tr class="hover:bg-gray-800/50 transition">
+								<td class="px-4 py-3 font-semibold">Bash, Python</td>
+								<td class="px-4 py-3 text-yellow-400 font-medium">Intermediate</td>
+							</tr>
+							<tr class="hover:bg-gray-800/50 transition">
+								<td class="px-4 py-3 font-semibold">JavaScript (Node.js / Express.js)</td>
+								<td class="px-4 py-3 text-orange-400 font-medium">Basic</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Libraries added outside and after the table, with emphasis -->
+				<div class="mt-6 pt-4 border-t border-gray-700 text-sm text-gray-300">
+					<span class="font-bold text-blue-300">Graphics & Low-Level Libraries Used:</span> <b>SFML, MLX, SDL3, GLFW</b>
+				</div>
+				<!-- <div class="mt-6 pt-4 border-t border-gray-700 text-sm text-gray-300">
+					<span class="font-bold text-blue-300">Other:</span> <b>Linux Environment, VSCode, Docker</b>
+				</div> -->
 			</section>
 
 			<!-- RECTANGLE 3: PERSONALITY / PASSIONS -->
-			<section class="info-rectangle">
-				<!--<h2 class="text-3xl font-bold main-title">3. Personality, Drive & Passion</h2>-->
-				<p class="text-lg text-gray-400">// This is for transferable skills like creativity, strategic thinking, and emotional intelligence.</p>
-				<!-- Content will connect music, gaming, and economics to professional traits -->
-			</section>
+						<!-- RECTANGLE 3: PERSONALITY / PASSIONS (UPDATED CONTENT) -->
+			<section id="contact" class="info-rectangle">
+				<h2 class="text-3xl font-bold main-title">Background & Interests</h2>
 
+				<div class="space-y-6 text-base text-gray-300">
+
+					<!-- Creative Discipline -->
+					<div class="pb-4 border-b border-gray-700">
+						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Creative Discipline</p>
+						<ul class="list-none space-y-2 text-base pl-4">
+							<li>Electronic Music Composer (10 years): EPs released on established labels.</li>
+							<li>International DJ/Performer: Played in clubs and at festivals across France, Canada, and Belgium.</li>
+							<li>Sound Designer for short movies.</li>
+						</ul>
+					</div>
+
+					<!-- Real-World Leadership -->
+					<div class="pb-4 border-b border-gray-700">
+						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Work Experience</p>
+						<ul class="list-none space-y-2 text-base pl-4">
+							<li>10 years in the restaurant industry.</li>
+							<li>Experience in temporary management roles.</li>
+						</ul>
+					</div>
+
+					<!-- Quantitative Foundation -->
+					<div class="pb-4 border-b border-gray-700">
+						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Education</p>
+						<ul class="list-none space-y-2 text-base pl-4">
+							<li>Bachelor in Economic Sciences (University of Montreal).</li>
+							<li>Major in Electroacoustic Studies ("Musiques Numériques" at University of Montreal).</li>
+						</ul>
+					</div>
+
+					<!-- Diverse Interests -->
+					<div class="pb-4 border-b border-gray-700">
+						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Diverse Interests</p>
+						<ul class="list-none space-y-2 text-base pl-4">
+							<li>Geopolitical History</li>
+							<li>Wine</li>
+							<li>Independent Comics (Bande Dessinée)</li>
+						</ul>
+					</div>
+					<div>
+						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Other</p>
+						<ul class="list-none space-y-1 text-base pl-4">
+							<li>Regularly practice tennis and table tennis.</li>
+							<li>Top 4% Age of Empires 2 player in 2021.</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<!-- <section id="about" class="info-rectangle"> -->
+			<!-- </section> -->
 		</div>
+
 	</main>
 
 
 	<!-- FOOTER - Reverting to original look -->
-	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
-		<p>&copy; 2025 Alexandre Van Der Plassche. <span class="text-gray-600">System Developer.</span></p>
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
+		<p>&copy; 2025 Alexandre Van Der Plassche</p>
 	</footer>
-	<script src="js/recursive_tree.js"></script>
 </body>
 </html>

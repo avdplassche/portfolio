@@ -243,7 +243,7 @@
 
 		<!-- Sphere Intersection Code Snippet -->
 		<div class="intersection-code overflow-x-auto text-sm my-6">
-			<h3 class="text-xl font-semibold text-white mb-4">C implementation example : the sphere intersection calculation</h3>
+			<h3 class="text-xl font-semibold text-white mb-4">C implementation example : the sphere intersection calculation</h3><br>
 			<pre class="text-white">
 <span class="text-yellow-400">int</span> <span class="text-blue-300">get_sphere_inter</span>(<span class="text-yellow-400">const</span> t_object *object,
 	<span class="text-yellow-400">const</span> t_ray *ray, t_inter_list *list)
@@ -359,12 +359,12 @@
 			</figcaption>
 		</figure>
 		<figure class="mb-8">
-			<img src="../images/minirt_exagerated_hq.png"
+			<img src="../images/minirt_reflections_01.png"
 				 alt="Diagram illustrating a recursive reflection ray bouncing off a surface."
 				 class="w-full h-auto shadow-lg">
 
 			<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
-				An exagerated example of reflections using spheres.
+				Example of reflections on various objects.
 			</figcaption>
 		</figure>
 
@@ -383,9 +383,14 @@
 				Using keyboard inputs, the user can instantly move the camera, adjust the position of lights, and translate, scale and rotate geometric objects.
 				This was used to speed up the debugging process and artistic iteration.<br>
 				In order to implement it, the pixel's size is multiplied by a certain ratio so the scene is rendered way faster, as seen bellow.
-				<img src="../images/minirt_exagerated_hq.png"
-				 alt="Diagram illustrating a recursive reflection ray bouncing off a surface."
-				 class="w-full h-auto shadow-lg">
+				<br><br>
+				<figure class="justify-center rounded-lg overflow-hidden shadow-xl border border-gray-700">
+					<video controls>
+						<source src="../videos/minirt_video_export.mov" type="video/mp4">
+						<!-- <source src="movie.ogg" type="video/ogg">
+						Your browser does not support the video tag. -->
+					</video>
+				</figure>
 
 			</li>
 		</ul>
@@ -420,9 +425,8 @@
 
 	</main>
 
-	<!-- FOOTER -->
-	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
-		<p>&copy; 2025 Alexandre Van Der Plassche.</p>
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
+		<p>&copy; 2025 Alexandre Van Der Plassche</p>
 	</footer>
 
 </body>

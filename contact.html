@@ -22,14 +22,29 @@
 		}
 
 		body {
-			font-family: 'IBM Plex Mono', monospace; /* Monospace for technical feel */
-			background-color: var(--color-bg);
+			font-family: 'IBM Plex Mono', monospace;
+
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			align-items: center;
+			background-image: url(images/background_gradient_07_flipped_02.png);
+			/*background-color: rgb(16, 21, 45);*/
 			color: var(--color-text);
 			scroll-behavior: smooth;
 		}
-
 		.nav-link.active {
 			color: var(--color-accent);
+		}
+		.info-rectangle {
+			padding: 2.5rem;
+			/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
+			transition: all 0.3s ease-in-out;
+			background-color: rgba(44, 34, 44, 0.8);
+			/* border: 1px solid rgba(51, 51, 51, 0.5); */
+			border-radius: 0.5rem;
+			position: relative;
 		}
 
 		.hero-title {
@@ -60,7 +75,7 @@
 		<section id="contact" class="flex flex-col items-center text-center">
 
 			<!-- Updated Catchphrase -->
-			<p class="text-xl text-gray-400 max-w-2xl mb-12">
+			<p class="text-xl text-gray-300 max-w-2xl mb-12">
 				You will find my professional links below.
 			</p>
 
@@ -68,7 +83,7 @@
 			<div class="flex flex-col space-y-8 w-full max-w-lg">
 
 				<!-- 1. Email Link -->
-				<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
+				<div class="info-rectangle">
 					<h2 class="text-lg font-semibold text-gray-300 mb-1">Email</h2>
 					<a href="mailto:vanderplassche.alexandre@gmail.com" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
 						vanderplassche.alexandre@gmail.com
@@ -76,7 +91,7 @@
 				</div>
 
 				<!-- 2. GitHub Link -->
-				<div class="bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-700 hover:border-cyan-500 transition duration-300">
+				<div class="info-rectangle">
 					<h2 class="text-lg font-semibold text-gray-300 mb-1">GitHub</h2>
 					<a href="https://github.com/avdplassche" target="_blank" class="text-xl font-bold text-blue-300 hover:text-blue-200 hover:underline transition duration-300 tracking-wider">
 						/avdplassche
@@ -91,10 +106,9 @@
 	</main>
 
 	<!-- FOOTER -->
-	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-500">
-		<p>&copy; 2025 Alexandre Van Der Plassche.</p>
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
+		<p>&copy; 2025 Alexandre Van Der Plassche</p>
 	</footer>
-
 </body>
 </html>
 
