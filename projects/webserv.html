@@ -125,7 +125,7 @@
 		</p>
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">The HTTP Protocol</h3>
 		<p>
-			The <b>H</b>yper<b>t</b>ext <b>T</b>ransfer <b>P</b>rotocol (HTTP) is the foundation of data communication for the World Wide Web.
+			The <b>H</b>yper<b>t</b>ext <b>T</b>ransfer <b>P</o sb>rotocol (HTTP) is the foundation of data communication for the World Wide Web.
 			It is an application layer protocol designed for transmitting hypermedia documents, such as HTML.
 			Essentially, HTTP defines how <b>clients</b> (e.g. web browsers) request information from <b>servers</b> (e.g. Webserv) and how servers transfer the response back.
 
@@ -179,7 +179,7 @@
 
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Response Generation</h3>
 		<p>
-			After processing the request, the server constructs a meticulous response for the client:
+			After processing the request, our server constructs a meticulous response for the client:
 			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
 				<li><strong class="text-cyan-300">Status Line:</strong> Includes the HTTP version and the three-digit Status Code (e.g. <code class="text-green-400">200 OK</code>, <code class="text-red-400">404 Not Found</code>, <code class="text-red-400">500 Internal Server Error</code>).</li>
 				<li><strong class="text-cyan-300">Headers:</strong> Provides metadata about the response, such as <code class="bg-gray-700 p-0.5 rounded">Content-Type</code> (e.g. <code class="bg-gray-700 p-0.5 rounded">text/html</code>) and <code class="bg-gray-700 p-0.5 rounded">Connection: Keep-Alive</code> for persistence.</li>
@@ -188,13 +188,13 @@
 		</p>
 
 		<figure class="mb-8">
-				<img src="../images/webserv_logs.png"
-				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
-				class="w-full h-auto object-contain">
-				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
-					Screenshots showing communication between Firefox and our server.
-				</figcaption>
-			</figure>
+			<img src="../images/webserv_logs.png"
+			alt="Diagram illustrating the HTTP request, server processing, and final response flow."
+			class="w-full h-auto object-contain">
+			<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
+				Screenshots showing communication between Firefox and our server.
+			</figcaption>
+		</figure>
 
 
 		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="methods">Supported HTTP Methods</h2>
@@ -293,6 +293,15 @@
 			The CGI is implemented using process management functions such as <code class="bg-gray-700 p-0.5 rounded">fork()</code>, <code class="bg-gray-700 p-0.5 rounded">dup2()</code>, <code class="bg-gray-700 p-0.5 rounded">execve()</code> and <code class="bg-gray-700 p-0.5 rounded">pipe()</code>.
 			The script (e.g. Python, Php, Perl) is being executed, and the output is being send to the client as the response's body.
 		</p>
+
+		<figure class="mb-8">
+			<img src="../images/webserv_cgi.png"
+			alt="Diagram illustrating the HTTP request, server processing, and final response flow."
+			class="w-full h-auto object-contain">
+			<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
+				Our file management cgi, inspired by Windows XP.
+			</figcaption>
+		</figure>
 
 
 	</main>
