@@ -95,7 +95,8 @@
 			</div>
 
 			<!-- GitHub Link -->
-			<a href="https://github.com/yourusername/minishell" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-blue-300 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Source Code on GitHub</a>
+			<a href="https://github.com/avdplassche/42_minishell
+			" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-blue-300 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Source Code on GitHub</a>
 		</div>
 
 		<!-- MAIN PROJECT IMAGE/DEMO -->
@@ -109,14 +110,14 @@
 		<!-- INTRODUCTION/DESCRIPTION (Step 1 Content) -->
 		<h2 class="text-3xl font-bold text-blue-200 mb-6 hero-title">Introduction</h2>
 		<p class="text-lg">
-			The Minishell project is a comprehensive reimplementation of a core component of the Unix environment: the command-line interpreter (shell).
-			Replicating many of the fundamental features of Bash shell, this project serves as a deep dive into system programming, demanding meticulous attention to process management, effective I/O redirection, and complex command line parsing.
+			The Minishell project is a comprehensive reimplementation of a core component of the Unix environment: the <b>command-line interpreter</b> (shell).
+			Replicating many of the fundamental features of Bash shell, this project serves as a deep dive into <b>system programming</b>, demanding meticulous attention to process management, effective I/O redirection, and complex command line parsing.
 		</p>
 		<p>
-			It was completed during the 42 common core, in collaboration with John Doe.
+			It was completed during the 42 common core, in collaboration with jrandet.
 		</p>
 		<p>
-			At its core, a shell operates in a continuous execution loop, defined by three main phases:
+			At its core, a shell operates in a continuous <b>execution loop</b>, defined by three main phases:
 			<br><br>
 			<span class="font-bold text-blue-300">1. Waiting:</span> The shell displays a prompt and awaits user command input.
 			<br>
@@ -314,7 +315,7 @@
 <span class="text-gray-400">// char **cmd.args = {"ls", "-l", NULL}</span>
 <span class="text-gray-400">// char **env = {"PATH=...", "USER=...", NULL}</span>
 
-<span class="text-yellow-400">execve</span>(cmd.path, cmd.args, env) == <span class="text-red-400">-1</span>
+<span class="text-yellow-400">execve</span>(cmd.path, cmd.args, env);
 </pre>
 		</div>
 

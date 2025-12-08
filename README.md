@@ -1,7 +1,7 @@
 <h1 align="center">Alexandre Van der Plassche</h1>
-<h3 align="center">42 Lausanne Student & Aspiring Software Developer</h3>
+<h3 align="center">42 Lausanne Student, Aspiring Software Developer</h3>
 
-- 👨‍💻 My projects (and my cv) are available at [avdplassche.com](avdplassche.com)
+- 👨‍💻 My projects will soon be presented at [avdplassche.ch](avdplassche.ch)
 
 - 📫 Reach me via **vanderplassche.alexandre@gmail.com**
 
