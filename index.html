@@ -36,7 +36,7 @@
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			align-items: center;
-			background-image: url(images/background_gradient_07_flipped_02.png);
+			background-image: url(/images/background_gradient_07_flipped_02.png);
 			/*background-color: rgb(16, 21, 45);*/
 			color: var(--color-text);
 			scroll-behavior: smooth;
@@ -75,7 +75,7 @@
 			font-family: 'Montserrat';
 			/* font-family: 'Roboto'; */
 			/*font-family: 'Geist'; - Removed as Geist is not a standard webfont */
-			color:#F0F0F0;
+			color:#E0E0E0;
 			/* opacity:0.8; */
 			text-shadow: 0 0 4px rgba(200, 200, 200, 0.2), 0 0 6px rgba(200, 200, 200, 0.1);
 		}
@@ -106,11 +106,11 @@
 	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
 		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
 			<div class="flex space-x-4 text-lg font-medium">
-				<a href="index.html" class="text-white transition duration-200" style="color:var(--color-accent);">about me</a>
+				<a href="/" class="text-white transition duration-200" style="color:var(--color-accent);">about me</a>
 				<span class="text-gray-600">/</span>
-				<a href="work.html" class="text-gray-400 hover:text-white transition duration-200">work</a>
+				<a href="/work" class="text-gray-400 hover:text-white transition duration-200">work</a>
 				<span class="text-gray-600">/</span>
-				<a href="contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
+				<a href="/contact" class="text-gray-400 hover:text-white transition duration-200">contact</a>
 			</div>
 		</nav>
 	</header>
@@ -123,21 +123,21 @@
 
 			<!-- LEFT SIDE: TITLE TEXT -->
 			<div class="w-full lg:w-3/5 mb-8 lg:mb-0 text-left lg:text-left">
-				<h1 class="text-7xl sm:text-8xl font-extrabold hero-title ">
+				<h1 class="text-6xl sm:text-8xl font-extrabold hero-title ">
 					Alexandre
 				</h1>
-				<p class="text-7xl sm:text-8xl font-extrabold hero-title mt-2">
+				<p class="text-6xl sm:text-8xl font-extrabold hero-title mt-2">
 					Van der Plassche
 				</p>
-				<p class="text-3xl text-gray-500 mt-8 tracking-widest uppercase">
+				<p class="text-3xl text-gray-400 mt-8 tracking-widest uppercase">
 					Software Developer.
 				</p>
 			</div>
 		</div>
 
 		<div class="mb-12 pt-8 flex flex-col lg:flex-row justify-left items-left lg:items-end">
-			<section id="internship" class="info-rectangle bg-opacity-90 border-2 border-[#FFA500]">
-				<h2 class="text-2xl font-bold main-title text-[#FFA500] flex items-center">
+			<section id="internship" class="info-rectangle bg-opacity-90 border-2 border-[#EFB500]">
+				<h2 class="text-2xl font-bold main-title text-[#EFB500] flex items-center">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
 						<rect width="20" height="14" x="2" y="7" rx="2"></rect>
@@ -146,15 +146,15 @@
 					Seeking Internship Opportunity
 				</h2>
 				<p class="text-xl text-gray-200 mt-4 mb-4">
-					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position starting from march 2026.
+					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from march 2026.
 				</p>
 				<div class="mt-8">
-					<a href="contact.html" class="inline-flex items-center px-6 py-3 border-2 border-[#FFA500] text-base font-semibold rounded-lg shadow-xl text-white bg-[#FFA500]/30 hover:bg-[#FFA500]/50 transition duration-300 transform hover:scale-[1.03]">
+					<a href="/contact/" class="inline-flex items-center px-6 py-3 border-2 border-[#EFB500] text-base font-semibold rounded-lg shadow-xl text-white bg-[#EFB500]/40 hover:bg-[#EFB500]/60 transition duration-300 transform hover:scale-[1.03]">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 							<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
 							<polyline points="22,6 12,13 2,6"></polyline>
 						</svg>
-						Get in Touch
+						See my Resume & Get in Touch
 					</a>
 				</div>
 			</section>
@@ -278,16 +278,12 @@
 			<!-- <section id="about" class="info-rectangle"> -->
 				<!-- </section> -->
 			</div>
-			<div class="mt-12 flex items-center">
+			<!--<div class="mt-12 flex items-center">
 				<span class="text-lg font-bold text-gray-300 mr-2 flex items-center">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
 						<path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 11.586V3a1 1 0 112 0v8.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-					</svg>
-					Download my CV
+					My CV:
 				</span>
-
-				<!-- FRENCH CV LINK -->
-				<a href="pdf/CV_Alexandre_VanderPlassche_FR.pdf" download="pdf/CV_Alexandre_VanderPlassche_FR.pdf"
+				<a href="/pdf/CV_Alexandre_VanderPlassche_FR.pdf"
 					class=" inline-flex items-center px-2 py-0.5 border border-transparent text-base font-medium shadow-lg text-white bg-blue-300/50 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 transition duration-300 transform hover:scale-[1.02] border-2 border-cyan-400"
 					style="border-radius: 0.3rem; border-color: #00BCD4/50; box-shadow: 0 4px 10px rgba(6, 182, 212, 0.2);">
 						<path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 11.586V3a1 1 0 112 0v8.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -295,15 +291,14 @@
 					FR
 				</a>
 
-				<!-- ENGLISH CV LINK -->
-				<a href="pdf/CV_Alexandre_VanderPlassche_ENG.pdf" download="pdf/CV_Alexandre_VanderPlassche_ENG.pdf"
+				<a href="/pdf/CV_Alexandre_VanderPlassche_ENG.pdf"
 					class="inline-flex items-center px-2 py-0.5 border border-transparent text-base font-medium  shadow-lg text-white bg-blue-300/50 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 transition duration-300 transform hover:scale-[1.02] border-2 border-cyan-400"
 					style="margin-left: 0.6rem; border-radius: 0.3rem; border-color: #00BCD4/50; box-shadow: 0 4px 10px rgba(6, 182, 212, 0.2);">
 						<path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 11.586V3a1 1 0 112 0v8.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
 					</svg>
 					EN
 				</a>
-			</div>
+			</div>-->
 	</main>
 
 

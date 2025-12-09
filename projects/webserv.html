@@ -22,7 +22,7 @@
 
 
 		body {
-			background-image: url("../images/background_gradient_05.png");
+			background-image: url("/images/background_gradient_05.png");
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
@@ -67,11 +67,11 @@
 	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
 		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
 			<div class="flex space-x-4 text-lg font-medium">
-				<a href="../index.html" class="text-gray-400 hover:text-white transition duration-200">about me</a>
+				<a href="/" class="text-gray-400 hover:text-white transition duration-200">about me</a>
 				<span class="text-gray-600">/</span>
-				<a href="../work.html" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
+				<a href="/work/" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
 				<span class="text-gray-600">/</span>
-				<a href="../contact.html" class="text-gray-400 hover:text-white transition duration-200">contact</a>
+				<a href="/contact/" class="text-gray-400 hover:text-white transition duration-200">contact</a>
 			</div>
 		</nav>
 	</header>
@@ -81,7 +81,7 @@
 		<!-- HEADER AND LINKS -->
 		<div class="mb-12 border-b border-gray-700 pb-8">
 			<!-- Link updated to reference relative paths -->
-			<a href="../work.html" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
+			<a href="/work/" class="text-sm text-gray-400 hover:text-cyan-400 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
 
 			<!-- Project Title -->
 			<h1 class="text-5xl sm:text-6xl font-extrabold text-blue-300 mb-4 hero-title">Webserv</h1>
@@ -94,7 +94,8 @@
 			</div>
 
 			<!-- GitHub Link -->
-			<a href="" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-cyan-400 transition duration-200 border-b border-gray-700 hover:border-cyan-400">Available soon on GitHub</a>
+			<!--<a href="" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-cyan-400 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Code (GitHub)</a>-->
+			<p class="mt-4 inline-block text-base font-semibold text-gray-300 ">Available soon on GitHub</p>
 		</div>
 
 		<div class="inline-flex items-center space-x-2 px-4 py-2 bg-amber-900/50 text-amber-300 rounded-lg border border-amber-700">
@@ -139,7 +140,7 @@
 		<!--<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-black">-->
 			<!-- Placeholder for the flow diagram image provided by the user (image_7939f7.png) -->
 			<figure class="mb-8">
-				<img src="../images/webserv_data_flow_01.png"
+				<img src="/images/webserv_data_flow_01.png"
 				alt="Diagram illustrating the HTTP request, server processing, and final response flow."
 				class="w-full h-auto object-contain">
 				<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
@@ -166,9 +167,8 @@
 			Correctly parsing and generating these messages is crucial for protocol compliance.
 		</p>
 
-		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Request</h3>
 		<p>
-			A request is structured into three main parts:
+			A <b>request</b> is structured into three main parts:
 			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
 				<li><strong class="text-cyan-300">Request Line:</strong> Contains the HTTP method (GET, POST, DELETE), the resource path (URI), and the HTTP version (HTTP/1.1).</li>
 				<li><strong class="text-cyan-300">Headers:</strong> Key-value pairs providing metadata, such as <code class="bg-gray-700 p-0.5 rounded">Host</code>, <code class="bg-gray-700 p-0.5 rounded">Content Type</code>, and, crucially, the <code class="bg-gray-700 p-0.5 rounded">Content-Length</code> for POST requests.</li>
@@ -176,9 +176,8 @@
 			</ul>
 		</p>
 
-		<h3 class="text-2xl font-bold text-white mt-8 mb-4">HTTP Response Generation</h3>
 		<p>
-			After processing the request, our server constructs a meticulous response for the client:
+			After processing the request, our server constructs a meticulous <b>response</b> for the client:
 			<ul class="list-disc list-inside space-y-2 pl-4 text-gray-300 mt-4 mb-4">
 				<li><strong class="text-cyan-300">Status Line:</strong> Includes the HTTP version and the three-digit Status Code (e.g. <code class="text-green-400">200 OK</code>, <code class="text-red-400">404 Not Found</code>, <code class="text-red-400">500 Internal Server Error</code>).</li>
 				<li><strong class="text-cyan-300">Headers:</strong> Provides metadata about the response, such as <code class="bg-gray-700 p-0.5 rounded">Content-Type</code> (e.g. <code class="bg-gray-700 p-0.5 rounded">text/html</code>) and <code class="bg-gray-700 p-0.5 rounded">Connection: Keep-Alive</code> for persistence.</li>
@@ -187,7 +186,7 @@
 		</p>
 
 		<figure class="mb-8">
-			<img src="../images/webserv_logs.png"
+			<img src="/images/webserv_logs.png"
 			alt="Diagram illustrating the HTTP request, server processing, and final response flow."
 			class="w-full h-auto object-contain">
 			<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
@@ -284,7 +283,7 @@
 
 
 		<!-- CONTAINER FOR IMAGE INSTEAD OF CODE BLOCK -->
-		<h2 class="text-3xl font-bold text-cyan-400 mt-16 mb-6 hero-title" id="cgi">Common Gateway Interface (CGI)</h2>
+		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title" id="cgi">Common Gateway Interface (CGI)</h2>
 		<p>
 			A static server can only serve files. To introduce dynamic content and run external scripts (like Python or PHP), we implemented support for the Common Gateway Interface (CGI).
 		</p>
@@ -294,7 +293,7 @@
 		</p>
 
 		<figure class="mb-8">
-			<img src="../images/webserv_cgi.png"
+			<img src="/images/webserv_cgi.png"
 			alt="Diagram illustrating the HTTP request, server processing, and final response flow."
 			class="w-full h-auto object-contain">
 			<figcaption class="mt-3 text-sm text-gray-400 text-right italic w-full">
