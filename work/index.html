@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Alexandre | Work</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
+	<style>
+		:root {
+			--color-bg: #1A1A1A;
+			--color-text: #F0F0F0;
+			--color-accent: #06B6D4; /* Cyan Accent */
+		}
+		.info-rectangle {
+			background-color: rgba(44, 34, 44, 0.8);
+		}
+
+		body {
+			font-family: 'IBM Plex Mono', monospace;
+			/*background-color: var(--color-bg);*/
+
+			/* background-image: url('images/background_gradient_03.jpg'); */
+			background-image: url(/images/background_gradient_07_flipped_02.png);
+			background-size: cover; /* Ensure image covers the entire viewport */
+			background-position: center center; /* Center the image */
+			background-repeat: no-repeat;
+			background-attachment: fixed; /* Fix the background position for parallax scroll effect */
+			background-color: var(--color-bg); /* Fallback color */
+			color: var(--color-text);
+			scroll-behavior: smooth;
+		}
+	</style>
+</head>
+<body class="min-h-screen">
+
+	<!-- NAVIGATION BAR -->
+	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
+		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
+			<div class="flex space-x-4 text-lg font-medium">
+				<a href="/" class="text-gray-400 hover:text-white transition duration-200">about me</a>
+				<span class="text-gray-600">/</span>
+				<a href="/work/" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
+				<span class="text-gray-600">/</span>
+				<a href="/contact/" class="text-gray-400 hover:text-white transition duration-200">contact</a>
+			</div>
+		</nav>
+	</header>
+
+	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
+
+		<!-- PROJECTS GRID -->
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-10 ">
+
+
+			<!-- NEW PROJECT CARD 0: Simulation Engine (WIP added here) -->
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+
+				<a href="/projects/simulation_engine.html">
+					<div class="mb-6 overflow-hidden border border-gray-700">
+						<img src="/images/simulator_icon.png"
+							 alt="Screenshot of Simulation Engine project"
+							 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
+					</div>
+
+					<h2 class="text-2xl font-semibold mb-2 text-blue-300">
+						Simulation Engine
+						<!-- WIP Badge Added -->
+						<span class="text-xs font-semibold ml-2 px-2 py-0.5 bg-amber-700 text-amber-100 rounded-full align-middle">
+							WIP
+						</span>
+					</h2>
+				</a>
+				<p class="text-gray-300 mb-4">A desktop application for real-time physics and rule-based (automa) simulations laboratory, and highly customizable UI for granular control.</p>
+
+				<!-- Tech Stack Tags (Cyan) -->
+				<div class="flex flex-wrap gap-2 mb-6">
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C++</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">SDL3</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">UI/UX</span>
+				</div>
+
+				<!-- Project Links -->
+				<div class="flex space-x-4">
+					<a href="https://github.com/avdplassche/avdp_SimEngine" target="_blank" class="text-sm font-semibold text-gray-300 hover:text-cyan-400 transition duration-200">View Code (GitHub)</a>
+					<!--<span class="text-sm font-medium text-gray-500">|</span>-->
+					<!--<a href="#" class="text-sm font-semibold text-cyan-500 hover:text-cyan-400 transition duration-200">Live Demo / Report</a>-->
+				</div>
+			</div>
+
+
+
+
+			<!-- PROJECT CARD 1: Webserv -->
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+
+				<a href="/projects/webserv.html">
+				<div class="mb-6 overflow-hidden border border-gray-700">
+					<img src="/images/webserv_icon.png"
+						 alt="Screenshot of Webserv project"
+						 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
+				</div>
+
+				<h2 class="text-2xl font-semibold mb-2 text-blue-300">Webserv</h2>
+				</a>
+				<p class="text-gray-300 mb-4">A custom HTTP server implementation in C++, designed to handle concurrent connections, static file serving, and CGI execution.</p>
+
+				<!-- Tech Stack Tags (Cyan) -->
+				<div class="flex flex-wrap gap-2 mb-6">
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C++</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">HTTP</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Linux</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Network</span>
+				</div>
+
+				<!-- Project Links -->
+				<div class="flex space-x-4">
+					<a href="" target="_blank" class="text-sm font-semibold text-gray-300 hover:text-cyan-400 transition duration-200">Available soon on GitHub</a>
+					<!--<span class="text-sm font-medium text-gray-500">|</span>-->
+					<!--<a href="#" class="text-sm font-semibold text-cyan-500 hover:text-cyan-400 transition duration-200">Live Demo / Report</a>-->
+				</div>
+			</div>
+
+			<!-- PROJECT CARD 2: Minirt -->
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+
+				<a href="/projects/minirt.html">
+				<div class="mb-6 overflow-hidden border border-gray-700">
+						<img src="/images/minirt_icon.png"
+						 alt="Screenshot of Minirt project"
+						 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
+						</div>
+
+						<h2 class="text-2xl font-semibold mb-2 text-blue-300">Minirt</h2>
+				</a>
+				<p class="text-gray-300 mb-4">A ray tracing engine written from scratch in C, capable of rendering 3D scenes with shapes and complex lighting effects.</p>
+
+				<!-- Tech Stack Tags (Cyan) -->
+				<div class="flex flex-wrap gap-2 mb-6">
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Graphics</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Ray Tracing</span>
+				</div>
+
+				<!-- Project Links -->
+				<div class="flex space-x-4">
+					<a href="https://github.com/Catalyst6787/MiniRT" target="_blank" class="text-sm font-semibold text-gray-300 hover:text-cyan-400 transition duration-200">View Code (GitHub)</a>
+					<!--<span class="text-sm font-medium text-gray-500">|</span>-->
+					<!-- UPDATED LINK HERE -->
+					<!--<a href="/projects/minirt.html" class="text-sm font-semibold text-cyan-500 hover:text-cyan-400 transition duration-200">Live Demo / Report</a>-->
+				</div>
+			</div>
+
+			<!-- PROJECT CARD 3: Minishell -->
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+
+				<a href="/projects/minishell.html">
+				<div class="mb-6 overflow-hidden border border-gray-700">
+					<img src="/images/minishell_icon.png"
+						 alt="Screenshot of Minishell project"
+						 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
+				</div>
+
+				<h2 class="text-2xl font-semibold mb-2 text-blue-300">Minishell</h2>
+				</a>
+				<p class="text-gray-300 mb-4">A custom shell (command-line interpreter) implementation replicating core features of Bash, including parsing, piping, and execution.</p>
+
+				<!-- Tech Stack Tags (Cyan) -->
+				<div class="flex flex-wrap gap-2 mb-6">
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C</span>
+					<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Bash</span>
+				</div>
+
+				<!-- Project Links -->
+				<div class="flex space-x-4">
+					<a href="https://github.com/avdplassche/42_minishell" target="_blank" class="text-sm font-semibold text-gray-300 hover:text-cyan-400 transition duration-200">View Code (GitHub)</a>
+					<!--<span class="text-sm font-medium text-gray-500">|</span>-->
+					<!--<a href="#" class="text-sm font-semibold text-cyan-500 hover:text-cyan-400 transition duration-200">Live Demo / Report</a>-->
+				</div>
+			</div>
+
+		</div>
+
+	</main>
+
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
+		<p>&copy; 2025 Alexandre Van Der Plassche</p>
+	</footer>
+
+</body>
+</html>
