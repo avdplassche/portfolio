@@ -11,13 +11,29 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
 	<!-- Custom Style Block for Dark Theme and Typography -->
 	<style>
 		:root {
 			--color-bg: #1A1A1A; /* Dark Charcoal Background */
 			--color-text: #F0F0F0; /* Off-White Text */
 			--color-accent: #06B6D4; /* Cyan Accent */
+			--accent-color: #06B6D4;
+		}
+		nav {
+			font-family: 'JetBrains Mono', monospace;
+		}
+		.nav-link {
+			transition: color 0.2s ease;
+			text-decoration: none;
+		}
+
+		.nav-link:hover {
+			color: var(--accent-color);
+		}
+
+		.active-nav {
+			color: var(--accent-color);
 		}
 
 
@@ -64,17 +80,18 @@
 <body class="min-h-screen">
 
 	<!-- NAVIGATION BAR -->
-	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
-		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
-			<div class="flex space-x-4 text-lg font-medium">
-				<a href="/" class="text-gray-400 hover:text-white transition duration-200">about me</a>
-				<span class="text-gray-600">/</span>
-				<a href="/work/" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="/contact/" class="text-gray-400 hover:text-white transition duration-200">contact</a>
-			</div>
-		</nav>
-	</header>
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
+		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
+			<a href="/" class="nav-link text-white opacity-80">about me</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/work" class="nav-link active-nav">work</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/lab" class="nav-link text-white opacity-80">lab</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/contact" class="nav-link text-white opacity-80">contact</a>
+		</div>
+	</nav>
+
 
 	<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 content-section">
 

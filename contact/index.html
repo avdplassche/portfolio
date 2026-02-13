@@ -11,14 +11,17 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
 
 	<!-- Custom Style Block for Dark Theme -->
 	<style>
 		/* Base Dark Theme Colors */
 		:root {
-			--color-bg: #1A1A1A; /* Dark Charcoal Background */
+			--bg-color: #0f1117;
 			--color-text: #F0F0F0; /* Off-White Text */
 			--color-accent: #06B6D4; /* Cyan Accent */
+			--accent-color: #06B6D4;
+			--nav-bg: #161b22;
 		}
 
 		body {
@@ -29,11 +32,27 @@
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			align-items: center;
-			background-image: url(/images/background_gradient_07_flipped_02.png);
-			/*background-color: rgb(16, 21, 45);*/
+			/* background-image: url(/images/background_gradient_07_flipped_02.png); */
+			background-color: var(--bg-color);
 			color: var(--color-text);
 			scroll-behavior: smooth;
 		}
+		nav {
+			font-family: 'JetBrains Mono', monospace;
+		}
+		.nav-link {
+			transition: color 0.2s ease;
+			text-decoration: none;
+		}
+
+		.nav-link:hover {
+			color: var(--accent-color);
+		}
+
+		.active-nav {
+			color: var(--accent-color);
+		}
+
 		.nav-link.active {
 			color: var(--color-accent);
 		}
@@ -41,7 +60,8 @@
 			padding: 2.5rem;
 			/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
 			transition: all 0.3s ease-in-out;
-			background-color: rgba(44, 34, 44, 0.8);
+			/* background-color: rgba(44, 34, 44, 0.8); */
+			background-color: var(--nav-bg);
 			/* border: 1px solid rgba(51, 51, 51, 0.5); */
 			border-radius: 0.5rem;
 			position: relative;
@@ -61,17 +81,17 @@
 <body class="min-h-screen">
 
 	<!-- NAVIGATION BAR (kept consistent with active page styling) -->
-	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
-		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
-			<div class="flex space-x-4 text-lg font-medium">
-				<a href="/" class="text-gray-400 hover:text-white transition duration-200">about me</a>
-				<span class="text-gray-600">/</span>
-				<a href="/work/" class="text-gray-400 hover:text-white transition duration-200">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="/contact/" class="text-white transition duration-200" style="color:var(--color-accent);">contact</a>
-			</div>
-		</nav>
-	</header>
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
+		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
+			<a href="/" class="nav-link text-white opacity-80">about me</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/work" class="nav-link text-white opacity-80">work</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/lab" class="nav-link text-white opacity-80">lab</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="#" class="active-nav">contact</a>
+		</div>
+	</nav>
 
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">

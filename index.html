@@ -9,15 +9,36 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+	<link rel="stylesheet" href="styles.css" />
 	<style>
+
 		:root {
 			--color-bg: #1A1A1A;
+			--nav-bg: #161b22;
 			--color-card-bg: #222222; /* Slightly darker than BG for contrast */
 			--color-text: #F0F0F0;
-			--color-accent: #06B6D4; /* Cyan Accent */
+			--accent-color: #06B6D4;
 			--color-border: #333333;
 		}
+		nav {
+			font-family: 'JetBrains Mono', monospace;
+		}
+
+		.nav-link {
+			transition: color 0.2s ease;
+			text-decoration: none;
+		}
+
+		.nav-link:hover {
+			color: var(--accent-color);
+		}
+
+		.active-nav {
+			color: var(--accent-color);
+		}
+
 		#p5-container {
 			width: 300px;
 			max-width: 800px;
@@ -35,12 +56,13 @@
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-attachment: fixed;
-			align-items: center;
 			background-image: url(/images/background_gradient_07_flipped_02.png);
+			align-items: center;
 			/*background-color: rgb(16, 21, 45);*/
 			color: var(--color-text);
 			scroll-behavior: smooth;
 		}
+
 		.info-rectangle {
 			padding: 2.5rem;
 			/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
@@ -66,10 +88,6 @@
 		}
 
 		/* Ensure header background is solid for readability over the background image */
-		header {
-			background-color: #1A1A1A;
-			backdrop-filter: blur(8px);
-		}
 		.hero-title {
 			/* font-family: 'Geist'; */
 			font-family: 'Montserrat';
@@ -109,17 +127,17 @@
 <body class="min-h-screen">
 
 	<!-- NAVIGATION BAR -->
-	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
-		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
-			<div class="flex space-x-4 text-lg font-medium">
-				<a href="/" class="text-white transition duration-200" style="color:var(--color-accent);">about me</a>
-				<span class="text-gray-600">/</span>
-				<a href="/work" class="text-gray-400 hover:text-white transition duration-200">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="/contact" class="text-gray-400 hover:text-white transition duration-200">contact</a>
-			</div>
-		</nav>
-	</header>
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
+		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
+			<a href="#" class="nav-link active-nav">about me</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/work" class="nav-link text-white opacity-80">work</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/lab" class="nav-link text-white opacity-80">lab</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/contact" class="nav-link text-white opacity-80">contact</a>
+		</div>
+	</nav>
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
@@ -152,7 +170,7 @@
 					Seeking Internship Opportunity
 				</h2>
 				<p class="text-xl text-gray-200 mt-4 mb-4">
-					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from march 2026.
+					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from April 2026.
 				</p>
 				<div class="mt-8">
 					<a href="/contact/" class="inline-flex items-center px-6 py-3 border-2 border-[#EFB500] text-base font-semibold rounded-lg shadow-xl text-white bg-[#EFB500]/40 hover:bg-[#EFB500]/60 transition duration-300 transform hover:scale-[1.03]">
@@ -259,7 +277,7 @@
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Education</p>
 						<ul class="list-none space-y-2 text-base pl-4">
 							<li>Bachelor in Economic Sciences (University of Montreal).</li>
-							<li>Major in Electroacoustic Studies ("Musiques Numériques" at University of Montreal).</li>
+							<li>Major in Electroacoustic Studies (Musiques Numériques at University of Montreal).</li>
 						</ul>
 					</div>
 

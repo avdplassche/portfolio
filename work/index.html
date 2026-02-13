@@ -8,49 +8,70 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
 
 	<style>
 		:root {
-			--color-bg: #1A1A1A;
+			--bg-color: #0f1117;
+			--nav-bg: #161b22;
+			--accent-color: #06B6D4;
 			--color-text: #F0F0F0;
 			--color-accent: #06B6D4; /* Cyan Accent */
 		}
 		.info-rectangle {
-			background-color: rgba(44, 34, 44, 0.8);
+			/* background-color: rgba(44, 34, 44, 0.8); */
+			/* background-color: rgba(44, 34, 44, 0.8); */
+			background-color: var(--nav-bg);
 		}
 
 		body {
 			font-family: 'IBM Plex Mono', monospace;
-			background-image: url(/images/background_gradient_07_flipped_02.png);
+			/* background-image: url(/images/background_gradient_07_flipped_02.png); */
+			background-color: var(--bg-color);
 			background-size: cover; /* Ensure image covers the entire viewport */
 			background-position: center center; /* Center the image */
 			background-repeat: no-repeat;
 			background-attachment: fixed; /* Fix the background position for parallax scroll effect */
-			background-color: var(--color-bg); /* Fallback color */
 			color: var(--color-text);
 			scroll-behavior: smooth;
 		}
-		@media (max-width: 600px) {
+		nav {
+			font-family: 'JetBrains Mono', monospace;
+		}
+		.nav-link {
+			transition: color 0.2s ease;
+			text-decoration: none;
+		}
+
+		.nav-link:hover {
+			color: var(--accent-color);
+		}
+
+		.active-nav {
+			color: var(--accent-color);
+		}
+
+		/* @media (max-width: 600px) {
 			body {
 				background-image: url(/images/background_gradient_07_smartphone.png);
 			}
-		}
+		} */
 	</style>
 </head>
 <body class="min-h-screen">
 
 	<!-- NAVIGATION BAR -->
-	<header class="sticky top-0 z-50 bg-[#1A1A1A] bg-opacity-90 backdrop-blur-sm shadow-xl">
-		<nav class="max-w-6xl mx-auto px-4 py-6 flex justify-center items-center">
-			<div class="flex space-x-4 text-lg font-medium">
-				<a href="/" class="text-gray-400 hover:text-white transition duration-200">about me</a>
-				<span class="text-gray-600">/</span>
-				<a href="/work/" class="text-white transition duration-200" style="color:var(--color-accent);">work</a>
-				<span class="text-gray-600">/</span>
-				<a href="/contact/" class="text-gray-400 hover:text-white transition duration-200">contact</a>
-			</div>
-		</nav>
-	</header>
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
+		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
+			<a href="/" class="nav-link text-white opacity-80">about me</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="#" class="nav-link active-nav">work</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/lab" class="nav-link text-white opacity-80">lab</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/contact" class="nav-link text-white opacity-80">contact</a>
+		</div>
+	</nav>
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
@@ -94,10 +115,10 @@
 
 
 			<!-- PROJECT CARD 1: Webserv -->
-			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-800">
 
 				<a href="/projects/webserv.html">
-				<div class="mb-6 overflow-hidden border border-gray-700">
+				<div class="mb-6 overflow-hidden border-gray-700">
 					<img src="/images/webserv_icon.png"
 						 alt="Screenshot of Webserv project"
 						 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
@@ -124,10 +145,10 @@
 			</div>
 
 			<!-- PROJECT CARD 2: Minirt -->
-			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-800">
 
 				<a href="/projects/minirt.html">
-				<div class="mb-6 overflow-hidden border border-gray-700">
+				<div class="mb-6 overflow-hidden border-gray-700">
 						<img src="/images/minirt_icon.png"
 						 alt="Screenshot of Minirt project"
 						 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
@@ -154,10 +175,10 @@
 			</div>
 
 			<!-- PROJECT CARD 3: Minishell -->
-			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-700">
+			<div class="info-rectangle bg-opacity-90 p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.01] border border-gray-800">
 
 				<a href="/projects/minishell.html">
-				<div class="mb-6 overflow-hidden border border-gray-700">
+				<div class="mb-6 overflow-hidden border-gray-800">
 					<img src="/images/minishell_icon.png"
 						 alt="Screenshot of Minishell project"
 						 class="w-full h-auto object-cover opacity-80 transition duration-300 hover:opacity-100">
