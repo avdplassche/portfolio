@@ -17,7 +17,7 @@
 		:root {
 			--color-bg: #1A1A1A;
 			--nav-bg: #161b22;
-			--color-card-bg: #222222; /* Slightly darker than BG for contrast */
+			--color-card-bg: #222222;
 			--color-text: #F0F0F0;
 			--accent-color: #06B6D4;
 			--color-border: #333333;
@@ -58,67 +58,45 @@
 			background-attachment: fixed;
 			background-image: url(/images/background_gradient_07_flipped_02.png);
 			align-items: center;
-			/*background-color: rgb(16, 21, 45);*/
 			color: var(--color-text);
 			scroll-behavior: smooth;
 		}
 
 		.info-rectangle {
 			padding: 2.5rem;
-			/* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); */
 			transition: all 0.3s ease-in-out;
 			background-color: rgba(44, 34, 44, 0.8);
-			/* border: 1px solid rgba(51, 51, 51, 0.5); */
 			border-radius: 0.5rem;
 			position: relative;
 		}
 		.info-rectangle:hover {
 			opacity: 0.9;
-			/* border-color: var(--color-accent); */
-			transform: translateY(-2px); /* Slight lift for interactivity */
-			box-shadow: 0 3px 10px rgba(6, 182, 212, 0.1); /* Cyan glow on hover */
+			transform: translateY(-2px);
+			box-shadow: 0 3px 10px rgba(6, 182, 212, 0.1);
 		}
 
-		/* Styling for the main header text */
 		.main-title {
-			/*font-family: 'Geist'; - Removed as Geist is not a standard webfont */
 			display: inline-block;
 			padding-bottom: 0.5rem;
 			margin-bottom: 1.5rem;
 		}
 
-		/* Ensure header background is solid for readability over the background image */
 		.hero-title {
-			/* font-family: 'Geist'; */
 			font-family: 'Montserrat';
-			/* font-family: 'Roboto'; */
-			/*font-family: 'Geist'; - Removed as Geist is not a standard webfont */
 			color:#E0E0E0;
-			/* opacity:0.8; */
 			text-shadow: 0 0 4px rgba(200, 200, 200, 0.2), 0 0 6px rgba(200, 200, 200, 0.1);
 		}
-
-		/* Specific styles for the new canvas container */
-
-		/* Set a fixed aspect ratio for the visual canvas container */
 		.canvas-box {
 			/*opacity: ;*/
 			background-color: var(--color-card-bg);
 			border-radius: 0.5rem;
 			overflow: hidden;
 			aspect-ratio: 1 / 1;
-			/* max-width: 300px; */
-			/* width: 100%; */
 			display: flex;
 		}
-		/* Style the canvas element created by p5 to fill its parent */
-		/* #p5-container canvas {
-			display: block;
-		} */
 		@media (max-width: 600px) {
 			body {
-				background-image: url(/images/background_gradient_07_smartphone.png); /* Use a different, smaller background image */
-				/* You can change any other style here too */
+				background-image: url(/images/background_gradient_07_smartphone.png);
 			}
 		}
 
@@ -126,7 +104,6 @@
 </head>
 <body class="min-h-screen">
 
-	<!-- NAVIGATION BAR -->
 	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
 		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
 			<a href="#" class="nav-link active-nav">about me</a>
@@ -141,11 +118,8 @@
 
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
-		<!-- MAIN PAGE TITLE & P5 VISUALIZATION -->
-		<!-- Use flex for desktop, stack for mobile (default column) -->
 		<div class="mb-8 pt-8 flex flex-col lg:flex-row justify-left items-left lg:items-end">
 
-			<!-- LEFT SIDE: TITLE TEXT -->
 			<div class="w-full lg:w-3/5 mb-8 lg:mb-0 text-left lg:text-left">
 				<h1 class="text-6xl sm:text-8xl font-extrabold hero-title ">
 					Alexandre
@@ -184,11 +158,8 @@
 			</section>
 		</div>
 
-
-		<!-- THREE STACKED RECTANGLES (ROWS) -->
 		<div class="grid grid-cols-1 gap-12">
 
-			<!-- RECTANGLE 1: PRESENTATION (THE HOOK) -->
 			<section id="about" class="info-rectangle">
 				<h2 class="text-3xl font-bold main-title">Who Am I ?</h2>
 				<p>
@@ -206,7 +177,6 @@
 
 			</section>
 
-			<!-- RECTANGLE 2: SKILLS / TOOLS (Populated with Table) -->
 			<section id="work" class="info-rectangle">
 				<h2 class="text-3xl font-bold main-title">Skills & Proficiency</h2>
 
@@ -224,36 +194,29 @@
 								<td class="px-4 py-3 text-green-400 font-medium">High</td>
 							</tr>
 							<tr class="hover:bg-gray-800/50 transition">
-								<td class="px-4 py-3 font-semibold">Bash, Python</td>
+								<td class="px-4 py-3 font-semibold">Bash, JavaScript (React / Node / Express)</td>
 								<td class="px-4 py-3 text-[#A3E635] font-medium">Good</td>
 							</tr>
 							<tr class="hover:bg-gray-800/50 transition">
-								<td class="px-4 py-3 font-semibold">JavaScript (React / Node / Express), HTML, CSS</td>
+								<td class="px-4 py-3 font-semibold">Python</td>
 								<td class="px-4 py-3 text-yellow-400 font-medium">Intermediate</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="mt-3 pt-4 border-gray-700 text-sm text-gray-300">
-					<span class="font-bold text-blue-300">Other tools :</span> <b>Git, Docker, Linux, VSCode, Obsidian</b>
+					<span class="font-bold text-blue-300">Other tools :</span> <b>Git, Docker, Linux, VSCode, Obsidian, NeoVim</b>
 				</div>
-				<!-- Libraries added outside and after the table, with emphasis -->
 				<div class="mt-6 pt-4 border-t border-gray-700 text-sm text-gray-300">
 					<span class="font-bold text-blue-300">Graphics & Low-Level Libraries Used:</span> <b>SFML, MLX, SDL3, GLFW</b>
 				</div>
-				<!-- <div class="mt-6 pt-4 border-t border-gray-700 text-sm text-gray-300">
-					<span class="font-bold text-blue-300">Other:</span> <b>Linux Environment, VSCode, Docker</b>
-				</div> -->
 			</section>
 
-			<!-- RECTANGLE 3: PERSONALITY / PASSIONS -->
-			<!-- RECTANGLE 3: PERSONALITY / PASSIONS (UPDATED CONTENT) -->
 			<section id="contact" class="info-rectangle">
 				<h2 class="text-3xl font-bold main-title">Background & Interests</h2>
 
 				<div class="space-y-6 text-base text-gray-300">
 
-					<!-- Creative Discipline -->
 					<div class="pb-4 border-b border-gray-700">
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Creative Discipline</p>
 						<ul class="list-none space-y-2 text-base pl-4">
@@ -263,7 +226,6 @@
 						</ul>
 					</div>
 
-					<!-- Real-World Leadership -->
 					<div class="pb-4 border-b border-gray-700">
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Work Experience</p>
 						<ul class="list-none space-y-2 text-base pl-4">
@@ -272,7 +234,6 @@
 						</ul>
 					</div>
 
-					<!-- Quantitative Foundation -->
 					<div class="pb-4 border-b border-gray-700">
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Education</p>
 						<ul class="list-none space-y-2 text-base pl-4">
@@ -281,7 +242,6 @@
 						</ul>
 					</div>
 
-					<!-- Diverse Interests -->
 					<div class="pb-4 border-b border-gray-700">
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Diverse Interests</p>
 						<ul class="list-none space-y-2 text-base pl-4">
@@ -299,13 +259,9 @@
 					</div>
 				</div>
 			</section>
-			<!-- <section id="about" class="info-rectangle"> -->
-				<!-- </section> -->
 			</div>
 	</main>
 
-
-	<!-- FOOTER - Reverting to original look -->
 	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
 		<p>&copy; 2025 Alexandre Van Der Plassche</p>
 	</footer>
