@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-w1idth, initial-scale=1.0">
-	<title>Alexandre | About Me</title>
+	<title>Avdplassche | About Me</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,11 +11,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-	<link rel="stylesheet" href="styles.css" />
+	<!--<link rel="stylesheet" href="styles.css" />-->
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<style>
 
 		:root {
-			--color-bg: #1A1A1A;
+			--bg-color: #0f1117;
 			--nav-bg: #161b22;
 			--color-card-bg: #222222;
 			--color-text: #F0F0F0;
@@ -51,12 +52,14 @@
 			position: relative;
 		}
 		body {
-			font-family: 'IBM Plex Mono', monospace;
+			/*font-family: 'IBM Plex Mono', monospace;*/
+			font-family: 'JetBrains Mono', monospace;
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-attachment: fixed;
 			background-image: url(/images/background_gradient_07_flipped_02.png);
+			background-color: var(--bg-color);
 			align-items: center;
 			color: var(--color-text);
 			scroll-behavior: smooth;
@@ -71,7 +74,7 @@
 		}
 		.info-rectangle:hover {
 			opacity: 0.9;
-			transform: translateY(-2px);
+			/*transform: translateY(-2px);*/
 			box-shadow: 0 3px 10px rgba(6, 182, 212, 0.1);
 		}
 
@@ -87,7 +90,6 @@
 			text-shadow: 0 0 4px rgba(200, 200, 200, 0.2), 0 0 6px rgba(200, 200, 200, 0.1);
 		}
 		.canvas-box {
-			/*opacity: ;*/
 			background-color: var(--color-card-bg);
 			border-radius: 0.5rem;
 			overflow: hidden;
@@ -144,7 +146,7 @@
 					Seeking Internship Opportunity
 				</h2>
 				<p class="text-xl text-gray-200 mt-4 mb-4">
-					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from April 2026.
+					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from May 2026.
 				</p>
 				<div class="mt-8">
 					<a href="/contact/" class="inline-flex items-center px-6 py-3 border-2 border-[#EFB500] text-base font-semibold rounded-lg shadow-xl text-white bg-[#EFB500]/40 hover:bg-[#EFB500]/60 transition duration-300 transform hover:scale-[1.03]">
@@ -163,18 +165,13 @@
 			<section id="about" class="info-rectangle">
 				<h2 class="text-3xl font-bold main-title">Who Am I ?</h2>
 				<p>
-					My name is Alexandre, I'm a highly <b>driven</b> and <b>dedicated</b> computer science enthusiast.
+					<b>Systems</b> and <b>low-level</b> developer with a growing focus on data and simulation. Student at 42 Lausanne (a 100% project-based school), <b>top 10</b> of my cohort.
+				<p>
+					My approach combine <b>technical rigor</b> with a <b>creative mindset</b>, a balance shaped by ten years composing electronic music.
 				</p>
 				<p>
-					I am a student at <b>42 Lausanne</b>, currently ranked in the <b>top 10</b> of the September 2024 promotion.
+					I build with <b>full understanding</b>, document with <b>discipline</b>, solve complex problems with <b>patience</b>.
 				</p>
-				<p>
-					My core interests focuse on <b>low-level programming</b>, <b>creative coding</b>, <b>computer simulation</b>, and <b>data visualization</b>.
-				</p>
-				<p>
-					I am inherently <b>curious</b>, highly <b>creative</b>, strongly <b>rational</b> and a <b>fast learner</b>.
-				</p>
-
 			</section>
 
 			<section id="work" class="info-rectangle">
@@ -182,33 +179,31 @@
 
 				<div class="overflow-x-auto border border-gray-700 rounded-lg">
 					<table class="min-w-full divide-y divide-gray-700">
-						<thead class="bg-gray-800">
+						<!--<thead class="bg-gray-800">
 							<tr>
 								<th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-400">Language / Tool</th>
 								<th class="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-400">Experience Level</th>
 							</tr>
-						</thead>
+						</thead>-->
 						<tbody class="divide-y divide-gray-700 text-sm">
 							<tr class="hover:bg-gray-800/50 transition">
-								<td class="px-4 py-3 font-semibold">C, C++</td>
-								<td class="px-4 py-3 text-green-400 font-medium">High</td>
+								<td class="px-4 py-3 font-semibold">Languages</td>
+								<td class="px-4 py-3 text-green-400 font-medium">C/C++ · Bash · TypeScript · Python (in progress)</td>
 							</tr>
 							<tr class="hover:bg-gray-800/50 transition">
-								<td class="px-4 py-3 font-semibold">Bash, JS / TS, React</td>
-								<td class="px-4 py-3 text-[#A3E635] font-medium">Good</td>
+								<td class="px-4 py-3 font-semibold">Frameworks & Libs</td>
+								<td class="px-4 py-3 text-[#A3E635] font-medium">React · SFML · SDL3 · Crow</td>
 							</tr>
 							<tr class="hover:bg-gray-800/50 transition">
-								<td class="px-4 py-3 font-semibold">Python, PostgreSQL</td>
-								<td class="px-4 py-3 text-yellow-400 font-medium">Intermediate</td>
+								<td class="px-4 py-3 font-semibold">Systems & Tools</td>
+								<td class="px-4 py-3 text-yellow-400 font-medium">Linux (Debian, Arch) · Docker · Git · GDB · Valgrind · NeoVim · Insomnia · Doxygen</td>
+							</tr>
+							<tr class="hover:bg-gray-800/50 transition">
+								<td class="px-4 py-3 font-semibold">Data</td>
+								<td class="px-4 py-3 text-orange-400 font-medium">SQLite · PostgreSQL</td>
 							</tr>
 						</tbody>
 					</table>
-				</div>
-				<div class="mt-3 pt-4 border-gray-700 text-sm text-gray-300">
-					<span class="font-bold text-blue-300">Other tools :</span> <b>Git, Docker, Linux, VSCode, Obsidian, NeoVim, Valgrind, GDB</b>
-				</div>
-				<div class="mt-6 pt-4 border-t border-gray-700 text-sm text-gray-300">
-					<span class="font-bold text-blue-300">Graphics & Low-Level Libraries Used:</span> <b>SFML, MLX, SDL3, GLFW</b>
 				</div>
 			</section>
 
@@ -216,6 +211,13 @@
 				<h2 class="text-3xl font-bold main-title">Background & Interests</h2>
 
 				<div class="space-y-6 text-base text-gray-300">
+					<div class="pb-4 border-b border-gray-700">
+						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Education</p>
+						<ul class="list-none space-y-2 text-base pl-4">
+							<li>Bachelor in Economic Sciences (University of Montreal).</li>
+							<li>Major in Electroacoustic Studies (Musiques Numériques at University of Montreal).</li>
+						</ul>
+					</div>
 
 					<div class="pb-4 border-b border-gray-700">
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Creative Discipline</p>
@@ -234,27 +236,14 @@
 						</ul>
 					</div>
 
-					<div class="pb-4 border-b border-gray-700">
-						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Education</p>
-						<ul class="list-none space-y-2 text-base pl-4">
-							<li>Bachelor in Economic Sciences (University of Montreal).</li>
-							<li>Major in Electroacoustic Studies (Musiques Numériques at University of Montreal).</li>
-						</ul>
-					</div>
 
-					<div class="pb-4 border-b border-gray-700">
+					<div>
 						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Diverse Interests</p>
 						<ul class="list-none space-y-2 text-base pl-4">
-							<li>Geopolitical History</li>
-							<li>Oenology</li>
-							<li>Independent Comics (Bande Dessinée)</li>
-						</ul>
-					</div>
-					<div>
-						<p class="font-semibold text-xl mb-3 tracking-wider text-blue-300">Other</p>
-						<ul class="list-none space-y-1 text-base pl-4">
+							<li>Geopolitical History.</li>
+							<li>Oenology.</li>
+							<li>Independent Comics (Bande Dessinée).</li>
 							<li>Regularly practice tennis and table tennis.</li>
-							<li>Top 4% Age of Empires 2 player in 2021.</li>
 						</ul>
 					</div>
 				</div>
@@ -263,7 +252,7 @@
 	</main>
 
 	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
-		<p>&copy; 2025 Alexandre Van Der Plassche</p>
+		<p>&copy; 2026 Alexandre Van Der Plassche</p>
 	</footer>
 </body>
 </html>

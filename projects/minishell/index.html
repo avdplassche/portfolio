@@ -3,34 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Alexandre | Minishell</title>
-	<!-- Load Tailwind CSS -->
+	<title>Avdplassche | Minishell</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 
-	<!-- Load Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
-	<!-- Custom Style Block for Dark Theme and Typography -->
 	<style>
 :root {
-			--color-bg: #1A1A1A; /* Dark Charcoal Background */
-			--color-text: #F0F0F0; /* Off-White Text */
-			--color-accent: #06B6D4; /* Cyan Accent */
+			--color-bg: #0f1117;
+			--color-text: #F0F0F0;
+			--color-accent: #06B6D4;
 			--accent-color: #06B6D4;
 		}
 
 
 		body {
-			background-image: url("../images/background_gradient_05.png");
+			/*background-image: url("/images/background_gradient_05.png");*/
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
 			background-attachment: fixed;
 			font-family: 'IBM Plex Mono', monospace;
-			/*font-family: 'Roboto', sans-serif;*/
-
 			background-color: var(--color-bg);
 			color: var(--color-text);
 			scroll-behavior: smooth;
@@ -55,7 +50,6 @@
 			font-family: 'Montserrat', sans-serif;
 		}
 
-		/* Styling for the large project content sections */
 		.content-section p {
 			line-height: 1.75;
 			margin-bottom: 1.5rem;
@@ -67,9 +61,8 @@
 			word-break: break-all;
 		}
 
-		/* Highlight styling for the command examples */
 		.command-box {
-			background-color: #2D3748; /* Darker background for the blocks */
+			background-color: #2D3748;
 			border-left: 4px solid var(--color-accent);
 			padding: 1rem;
 			margin-bottom: 1.5rem;
@@ -79,7 +72,6 @@
 </head>
 <body class="min-h-screen">
 
-	<!-- NAVIGATION BAR -->
 	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
 		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
 			<a href="/" class="nav-link text-white opacity-80">about me</a>
@@ -94,15 +86,11 @@
 
 	<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 content-section">
 
-		<!-- HEADER AND LINKS -->
 		<div class="mb-12 border-b border-gray-700 pb-8">
-			<!-- Link updated to reference relative paths -->
 			<a href="/work/" class="text-sm text-gray-400 hover:text-blue-300 transition duration-200 mb-2 inline-block">&lt; Back to Projects</a>
 
-			<!-- Project Title -->
 			<h1 class="text-5xl sm:text-6xl font-extrabold text-blue-300 mb-4 hero-title">Minishell</h1>
 
-			<!-- Project Tags -->
 			<div class="flex flex-wrap gap-2">
 				<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">C</span>
 				<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Shell</span>
@@ -110,20 +98,16 @@
 				<span class="text-xs font-semibold px-3 py-1 bg-cyan-800 text-white rounded-full">Linux</span>
 			</div>
 
-			<!-- GitHub Link -->
 			<a href="https://github.com/avdplassche/42_minishell
 			" target="_blank" class="mt-4 inline-block text-base font-semibold text-gray-300 hover:text-blue-300 transition duration-200 border-b border-gray-700 hover:border-cyan-400">View Source Code on GitHub</a>
 		</div>
 
-		<!-- MAIN PROJECT IMAGE/DEMO -->
 		<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700">
-			<!-- Placeholder image for Minishell demonstration (Terminal look) -->
-			<img src="../images/minishell_intro_04.png"
+			<img src="/images/minishell_intro_04.png"
 				 alt="Screenshot of the custom Minishell running commands."
 				 class="w-full h-auto object-cover">
 		</div>
 
-		<!-- INTRODUCTION/DESCRIPTION (Step 1 Content) -->
 		<h2 class="text-3xl font-bold text-blue-200 mb-6 hero-title">Introduction</h2>
 		<p class="text-lg">
 			The Minishell project is a comprehensive reimplementation of a core component of the Unix environment: the <b>command-line interpreter</b> (shell).
@@ -142,7 +126,6 @@
 			<span class="font-bold text-blue-300">3. Processing:</span> The input is then analyzed through a precise, multi-stage pipeline—from parsing to final execution—demonstrating a practical understanding of how operating systems manage user commands and processes.
 		</p>
 
-		<!-- KEY CHALLENGES/FEATURES SECTION (Outline for next steps) -->
 		<h2 class="text-3xl font-bold text-blue-200 mt-16 mb-6 hero-title">Key Challenges and Features</h2>
 		<p>During this project, we were asked to:</p>
 
@@ -161,23 +144,20 @@
 		</p>
 
 
-		<!-- START MOVED AND REPHRASED SECTION: TOKENIZATION & UNDERSTANDING -->
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">Initial Tokenization and Testing Blueprint</h3>
 		<p>
 			Before implementing the parser, I needed a complete understanding of how Bash tokenizes complex command lines. I created the visualization below as a rigorous testing blueprint in Bash. This systematic analysis of distinct command scenarios served as the crucial pre-development stage.
 		</p>
 
-		<!-- Diagram section remains here, before Data Structure Choice -->
 		<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-gray-800 p-4">
 			<h4 class="text-xl font-bold text-white mb-4">Tokenization and Structural Mapping</h4>
-			<img src="../images/minishell_command_decomposition.png"
+			<img src="/images/minishell_command_decomposition.png"
 				 alt="Diagram showing various commands broken down into structured components: bin, arg, input redir, file descriptors, and pipe."
 				 class="w-full h-auto object-cover border border-gray-700 rounded-md mb-4">
 			<figcaption class="text-sm text-gray-400 italic">
 				Visual representation of different command-line inputs are decomposition, done with Obsidian's canva plug-in.
 			</figcaption>
 		</div>
-		<!-- END MOVED AND REPHRASED SECTION -->
 
 
 		<h3 class="text-2xl font-bold text-white mt-8 mb-4">Data Structure Choice</h3>
@@ -211,14 +191,12 @@
 		</pre>
 		</div>
 
-			  <!-- NEW SECTION: CONCRETE PARSING EXAMPLES -->
 		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title">Parsing Examples in Action</h2>
 		<p>
 			The array-of-structures model proves its efficiency when handling complex command lines that involve multiple pipes (<code class="text-yellow-300">|</code>) and redirections (<code class="text-yellow-300">&lt;</code>, <code class="text-yellow-300">&gt;</code>).
 		</p>
 
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-			<!-- Example 1: Long Pipeline -->
 			<div class="command-box">
 				<h3 class="text-xl font-bold text-white mb-4">Example 1: Long Pipeline</h3>
 				<p class="text-lg font-semibold text-cyan-300 mb-4">
@@ -255,7 +233,6 @@
 				</p>
 			</div>
 
-			<!-- Example 2: Redirection and Pipes -->
 			<div class="command-box">
 				<h3 class="text-xl font-bold text-white mb-4">Example 2: Redirection & Pipes</h3>
 				<p class="text-lg font-semibold text-cyan-300 mb-4">
@@ -284,7 +261,6 @@
 		</div>
 
 
-	  <!-- NEW SECTION: QUOTE AND VARIABLE EXPANSION (Rewritten) -->
 		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title">Quote and Variable Expansion</h2>
 		<p>
 			One of the subtle complexities of shell programming is mastering the rules for <b>single quotes</b> (<code class="text-yellow-300">'</code>), <b>double quotes</b> (<code class="text-yellow-300">"</code>), and <b>variable expansion</b> (<code class="text-yellow-300">$</code>).
@@ -301,7 +277,7 @@
 		<!-- Placeholder for the Minishell vs Bash Screenshot -->
 		<div class="mb-12 rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-gray-800 p-4">
 			<h3 class="text-xl font-bold text-white mb-4">Minishell vs. Bash Comparison</h3>
-			<img src="../images/minishell_quote.png"
+			<img src="/images/minishell_quote.png"
 				 alt="Comparison of Minishell and Bash output for a command containing single and double quotes."
 				 class="w-full h-auto object-cover border border-gray-700 rounded-md mb-4">
 			<figcaption class="text-sm text-gray-400 italic">
@@ -309,7 +285,6 @@
 			</figcaption>
 		</div>
 
-	 <!-- NEW SECTION: EXECUTION -->
 		<h2 class="text-3xl font-bold text-blue-300 mt-16 mb-6 hero-title">The Execution Phase: Fork, Pipe, and Execve</h2>
 		<p>
 			This phase is responsible for correctly running user-defined binaries and built-in commands, managing I/O redirection, and handling pipelines.
@@ -362,7 +337,7 @@
 	</main>
 
 	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
-		<p>&copy; 2025 Alexandre Van Der Plassche</p>
+		<p>&copy; 2026 Alexandre Van Der Plassche</p>
 	</footer>
 </body>
 </html>

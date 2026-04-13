@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Avdplassche | LAB</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--bg-color: #0f1117;
+			--nav-bg: #161b22;
+			--border-color: #30363d;
+			--accent-color: #06B6D4;
+			--text-main: #c9d1d9;
+			--text-muted: #8b949e;
+		}
+
+		body {
+			background-color: var(--bg-color);
+			color: var(--text-main);
+			font-family: 'JetBrains Mono', monospace;
+			align-items: center;
+			scroll-behavior: smooth;
+		}
+
+		.hero-title {
+			font-family: 'Montserrat';
+			color:#E0E0E0;
+			text-shadow: 0 0 4px rgba(200, 200, 200, 0.2), 0 0 6px rgba(200, 200, 200, 0.1);
+		}
+
+		.content-container {
+			width: 90%;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 1400px;
+		}
+		.lab-nav {
+			display: flex;
+			gap: 2rem;
+			font-family: monospace;
+			font-size: 0.75rem;
+			letter-spacing: 0.15em;
+			text-transform: uppercase;
+			border-bottom: 1px solid var(--border-color);
+			padding-bottom: 1rem;
+		}
+
+		.lab-nav a {
+			color: #aaa;
+			text-decoration: none;
+			transition: all 0.2s;
+			cursor: pointer;
+			padding-bottom: 1rem;
+			margin-bottom: -1rem;
+			border-bottom: 1px solid transparent;
+		}
+
+		.lab-nav a:hover { color: #fff; }
+		.lab-nav a.active {
+			color: var(--accent-color);
+			border-bottom: 1px solid var(--accent-color);
+		}
+
+		.sub-nav {
+			display: none;
+			gap: 1.5rem;
+			margin-top: 1.5rem;
+			margin-bottom: 2rem;
+			font-size: 0.7rem;
+			color: var(--text-muted);
+		}
+
+		.sub-nav.active { display: flex; }
+
+		.sub-nav a {
+			cursor: pointer;
+			transition: color 0.2s;
+		}
+
+		.sub-nav a:hover { color: #fff; }
+		.sub-nav a.active {
+			color: #fff;
+			font-weight: bold;
+			text-decoration: underline;
+			text-underline-offset: 4px;
+		}
+
+		/* Tab Content */
+		.tab-content {
+			display: none;
+			animation: fadeIn 0.4s ease-out;
+		}
+
+		.tab-content.active { display: block; }
+
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(5px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		.simulation-card {
+			border: 1px solid var(--border-color);
+			display: flex;
+			background: #0d1117;
+			overflow: hidden;
+		}
+
+		.media-pane {
+			width: 55%;
+			background: #161b22;
+			aspect-ratio: 16/9;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-right: 1px solid var(--border-color);
+		}
+
+		.info-pane {
+			width: 45%;
+			padding: 3rem;
+		}
+	</style>
+</head>
+<body class="min-h-screen">
+
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
+		<div class="flex justify-center items-center gap-6 text-[14px] font-medium tracking-wide">
+			<a href="/" class="nav-link text-white opacity-80">about me</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/work" class="nav-link text-white opacity-80">work</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="#" class="nav-link active-nav">lab</a>
+			<span class="text-[#30363d] text-lg">/</span>
+			<a href="/contact" class="nav-link text-white opacity-80">contact</a>
+		</div>
+	</nav>
+
+	<div class="content-container">
+		<header class="py-16">
+			<h1 class="text-6xl sm:text-8xl font-extrabold hero-title ">LAB</h1>
+			<div class="flex flex-wrap gap-4 text-xs tracking-[0.2em] text-[#8b949e] uppercase">
+				<span>GRAPHICAL EXPERIMENTS</span>
+			</div>
+		</header>
+
+		<main class="pb-20">
+			<!-- Lab Main Nav -->
+			<nav class="lab-nav" id="mainLabNav">
+				<a onclick="switchTab('simulations', 'particle-life')" id="link-simulations">Simulations</a>
+				<a onclick="switchTab('diagrams')" id="link-diagrams">Diagrams</a>
+				<a onclick="switchTab('obsidian')" id="link-obsidian">Obsidian</a>
+				<a onclick="switchTab('creative')" id="link-creative">Creative Coding</a>
+			</nav>
+
+			<div id="subnav-simulations" class="sub-nav">
+				<a onclick="switchTab('simulations', 'particle-life')" id="link-particle-life">Particle Life</a>
+				<span class="opacity-20">|</span>
+				<a onclick="switchTab('simulations', 'sim-engine')" id="link-sim-engine">Sim Engine</a>
+				<span class="opacity-20">|</span>
+				<a onclick="switchTab('simulations', 'physic-engine')" id="link-physic-engine">Physic Engine</a>
+			</div>
+
+
+<!-- /////////////////////////////////////	Particle Life	/////////////////////////////////////////////////////////////// -->
+
+			<div id="particle-life" class="tab-content">
+				<div class="simulation-card">
+					<div class="media-pane">Video: Particle Life</div>
+					<div class="info-pane">
+						<h2 class="text-3xl font-bold mb-4 uppercase">Particle Life</h2>
+						<p class="text-[#8b949e] leading-relaxed">Primordial soup simulation where simple attraction/repulsion rules create complex organic behaviors.</p>
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+<!-- /////////////////////////////////////	Sim Engine	/////////////////////////////////////////////////////////////// -->
+
+
+
+
+
+			<div id="sim-engine" class="tab-content">
+				<div class="simulation-card">
+					<div class="media-pane">Video: Sim Engine</div>
+					<div class="info-pane">
+						<h2 class="text-3xl font-bold mb-4 uppercase">Sim Engine</h2>
+						<p class="text-[#8b949e] leading-relaxed">A custom discrete event simulation framework designed for performance benchmarking.</p>
+					</div>
+				</div>
+			</div>
+
+
+<!-- /////////////////////////////////////	Physic Engine	/////////////////////////////////////////////////////////////// -->
+
+
+			<div id="physic-engine" class="tab-content">
+				<div class="simulation-card">
+					<div class="media-pane">Video: Physic Engine</div>
+					<div class="info-pane">
+						<h2 class="text-3xl font-bold mb-4 uppercase">Physic Engine</h2>
+						<p class="text-[#8b949e] leading-relaxed">2D rigid body dynamics engine featuring GJK collision detection and sequential impulse solver.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Other Top-Level Tabs -->
+			<div id="diagrams" class="tab-content">
+				<div class="p-20 border border-dashed border-[#30363d] text-center">Diagrams Content</div>
+			</div>
+			<div id="obsidian" class="tab-content">
+				<div class="p-20 border border-dashed border-[#30363d] text-center">Obsidian Content</div>
+			</div>
+			<div id="creative" class="tab-content">
+				<div class="p-20 border border-dashed border-[#30363d] text-center">Creative Content</div>
+			</div>
+
+		</main>
+
+	</div>
+		<script>
+			function switchTab(categoryId, subId = null) {
+				// 1. Hide ALL contents
+				document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+			// 2. Clear ALL active states from ALL nav links
+			document.querySelectorAll('.lab-nav a, .sub-nav a').forEach(l => l.classList.remove('active'));
+
+			// 3. Handle Sub-Navigation visibility
+			document.querySelectorAll('.sub-nav').forEach(s => s.classList.remove('active'));
+
+			// 4. Set Category Active
+			document.getElementById('link-' + categoryId).classList.add('active');
+
+			// 5. If it has a sub-nav, show it and target the specific sub-item
+			const subNav = document.getElementById('subnav-' + categoryId);
+			if (subNav) {
+				subNav.classList.add('active');
+				// Use subId if provided, otherwise default to first link in sub-nav
+				const targetSubId = subId || subNav.querySelector('a').id.replace('link-', '');
+				document.getElementById(targetSubId).classList.add('active');
+				document.getElementById('link-' + targetSubId).classList.add('active');
+			} else {
+				// Single level tab
+				document.getElementById(categoryId).classList.add('active');
+			}
+		}
+
+		// Initialize: Show simulations/particle-life on load
+		window.onload = () => {
+			switchTab('simulations', 'particle-life');
+		}
+		</script>
+	<footer class="mt-20 py-6 border-t border-gray-700 text-center text-sm text-gray-300">
+		<p>&copy; 2026 Alexandre Van Der Plassche</p>
+	</footer>
+	</body>
+</html>
