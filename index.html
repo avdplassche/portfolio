@@ -59,7 +59,7 @@
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-attachment: fixed;
-			<!-- background-image: url(/images/background_gradient_07_flipped_02.png); -->
+			/*<!-- background-image: url(/images/background_gradient_07_flipped_02.png); -->*/
 			align-items: center;
 			color: var(--color-text);
 			scroll-behavior: smooth;
@@ -69,7 +69,7 @@
 			padding: 2.5rem;
 			transition: all 0.3s ease-in-out;
 			background-color: rgba(32, 37,44 , 0.8);
-			<!-- background-color: var(--nav-bg); -->
+			/*<!-- background-color: var(--nav-bg); -->*/
 			border-radius: 0.5rem;
 			position: relative;
 		}
@@ -107,18 +107,20 @@
 </head>
 <body class="min-h-screen">
 
-	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
-		<div class="flex justify-center items-center gap-6 text-[20px] font-medium tracking-wide">
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-4 sm:py-6 sticky top-0 z-50 px-2">
+		<div class="flex justify-center items-center gap-2 sm:gap-6 text-[15px] sm:text-[20px] font-medium tracking-wide">
 			<a href="#" class="nav-link active-nav">about me</a>
-			<span class="text-[#30363d] text-lg">/</span>
-			<a href="/work" class="nav-link text-white opacity-80">work</a>
-			<span class="text-[#30363d] text-lg">/</span>
-			<a href="/lab" class="nav-link text-white opacity-80">lab</a>
-			<span class="text-[#30363d] text-lg">/</span>
-			<a href="/contact" class="nav-link text-white opacity-80">contact</a>
+
+			<span class="text-[#30363d] text-base sm:text-lg">/</span>
+			<a href="/work" class="nav-link text-white/80 hover:text-white">work</a>
+
+			<span class="text-[#30363d] text-base sm:text-lg">/</span>
+			<a href="/lab" class="nav-link text-white/80 hover:text-white">lab</a>
+
+			<span class="text-[#30363d] text-base sm:text-lg">/</span>
+			<a href="/contact" class="nav-link text-white/80 hover:text-white">contact</a>
 		</div>
 	</nav>
-
 	<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
 
 		<div class="mb-8 pt-8 flex flex-col lg:flex-row justify-left items-left lg:items-end">
@@ -147,7 +149,7 @@
 					Seeking Internship Opportunity
 				</h2>
 				<p class="text-xl text-gray-200 mt-4 mb-4">
-					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from July 2026.
+					I am actively seeking a <b class="px-1 py-0.5 rounded-sm">4 to 6 month internship</b> position in Switzerland starting from August 2026.
 				</p>
 				<div class="mt-8">
 					<a href="/contact/" class="inline-flex items-center px-6 py-3 border-2 border-[#EFB500] text-base font-semibold rounded-lg shadow-xl text-white bg-[#EFB500]/40 hover:bg-[#EFB500]/60 transition duration-300 transform hover:scale-[1.03]">
@@ -168,7 +170,7 @@
 				<p>
 					<b>Systems</b> and <b>low-level</b> developer with a growing focus on data and simulation. Student at 42 Lausanne (a 100% project-based school), <b>top 10</b> of my cohort.
 				<p>
-					My approach combine <b>technical rigor</b> with a <b>creative mindset</b>, a balance shaped by ten years composing electronic music.
+					My approach combine <b>technical rigor</b> with a <b>creative mindset</b>, a balance shaped by ten years of sound design freelance.
 				</p>
 				<p>
 					I build with <b>full understanding</b>, document with <b>discipline</b>, solve complex problems with <b>patience</b>.

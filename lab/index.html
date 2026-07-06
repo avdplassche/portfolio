@@ -100,7 +100,6 @@
 			color: #fff;
 			font-weight: bold;
 			text-decoration: underline;
-			text-urnderline-offset: 4px;
 		}
 
 		/* Tab Content */
@@ -165,7 +164,7 @@
         .carousel-container {
             display: grid;
             grid-auto-flow: column;
-            grid-auto-columns: 400px; 
+            grid-auto-columns: 400px;
             gap: 1.5rem;
             overflow-x: auto;
             padding: 1rem 0;
@@ -193,7 +192,7 @@
             border: 1px solid #30363d;
         }
 
-        .media-wrapper video, 
+        .media-wrapper video,
         .media-wrapper img {
             width: 100%;
             height: 100%;
@@ -204,15 +203,18 @@
 </head>
 <body class="min-h-screen">
 
-	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-6 sticky top-0 z-50">
-		<div class="flex justify-center items-center gap-6 text-[20px] font-medium tracking-wide">
-			<a href="/" class="nav-link text-white opacity-80">about me</a>
-			<span class="text-[#30363d] text-lg">/</span>
-			<a href="/work" class="nav-link text-white opacity-80">work</a>
-			<span class="text-[#30363d] text-lg">/</span>
-			<a href="#" class="nav-link active-nav">lab</a>
-			<span class="text-[#30363d] text-lg">/</span>
-			<a href="/contact" class="nav-link text-white opacity-80">contact</a>
+	<nav class="w-full bg-[#161b22] border-b border-[#30363d] py-4 sm:py-6 sticky top-0 z-50 px-2">
+		<div class="flex justify-center items-center gap-2 sm:gap-6 text-[15px] sm:text-[20px] font-medium tracking-wide">
+			<a href="/" class="nav-link text-white/80 hover:text-white">about me</a>
+
+			<span class="text-[#30363d] text-base sm:text-lg">/</span>
+			<a href="/work" class="nav-link text-white/80 hover:text-white">work</a>
+
+			<span class="text-[#30363d] text-base sm:text-lg">/</span>
+			<a href="/lab" class="nav-link active-nav">lab</a>
+
+			<span class="text-[#30363d] text-base sm:text-lg">/</span>
+			<a href="/contact" class="nav-link text-white/80 hover:text-white">contact</a>
 		</div>
 	</nav>
 
@@ -571,7 +573,7 @@
                     <!--     <h4 class="text-white font-bold text-sm mb-1 italic">Merge Insertion Sort</h4> -->
                     <!-- </div> -->
 
-                </div>  
+                </div>
         </div>
 
 
